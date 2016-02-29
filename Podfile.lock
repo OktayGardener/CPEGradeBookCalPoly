@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (3.2.0)
+  - Alamofire (3.2.1)
   - Locksmith (2.0.8)
   - SwiftyJSON (2.3.2)
 
@@ -18,7 +18,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
-  Alamofire: 4da478599fccddff361205c8929333d7fe18dceb
+  Alamofire: f11d8624a05f5d39e0c99309b3e600a3ba64298a
   Locksmith: a8ed41ac4c06506ea8cb199d8ec8a8d3d108eb2a
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
