@@ -8,29 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		3B5471E853441DE6198A15AF /* Pods_CPEGradeBookCalPoly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AEAAE2AC284EFCE82CEC00A /* Pods_CPEGradeBookCalPoly.framework */; };
+		A285D5281C84127C00D1E9E2 /* GradeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A285D5271C84127C00D1E9E2 /* GradeController.swift */; };
+		A285D52A1C8412F400D1E9E2 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A285D5291C8412F400D1E9E2 /* SettingsController.swift */; };
+		A285D52C1C84135900D1E9E2 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A285D52B1C84135900D1E9E2 /* SignInViewController.swift */; };
 		A2BBE2231C7D587600463F2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BBE2221C7D587600463F2C /* AppDelegate.swift */; };
-		A2BBE2251C7D587600463F2C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BBE2241C7D587600463F2C /* ViewController.swift */; };
 		A2BBE2281C7D587600463F2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2BBE2261C7D587600463F2C /* Main.storyboard */; };
 		A2BBE22B1C7D587600463F2C /* CPEGradeBookCalPoly.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2BBE2291C7D587600463F2C /* CPEGradeBookCalPoly.xcdatamodeld */; };
 		A2BBE22D1C7D587600463F2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2BBE22C1C7D587600463F2C /* Assets.xcassets */; };
 		A2BBE2381C7D681500463F2C /* GradeBookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BBE2371C7D681500463F2C /* GradeBookModel.swift */; };
 		A2F5E6A91C7D6C4800611734 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2F5E6A71C7D6C4800611734 /* LaunchScreen.storyboard */; };
-		A2F5E6AB1C7D759400611734 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2F5E6AA1C7D759400611734 /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3AEAAE2AC284EFCE82CEC00A /* Pods_CPEGradeBookCalPoly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CPEGradeBookCalPoly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CCDA5BD50A5652BB7DDD604 /* Pods-CPEGradeBookCalPoly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CPEGradeBookCalPoly.release.xcconfig"; path = "Pods/Target Support Files/Pods-CPEGradeBookCalPoly/Pods-CPEGradeBookCalPoly.release.xcconfig"; sourceTree = "<group>"; };
+		A285D5271C84127C00D1E9E2 /* GradeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeController.swift; sourceTree = "<group>"; };
+		A285D5291C8412F400D1E9E2 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
+		A285D52B1C84135900D1E9E2 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		A2BBE21F1C7D587600463F2C /* CPEGradeBookCalPoly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CPEGradeBookCalPoly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2BBE2221C7D587600463F2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A2BBE2241C7D587600463F2C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A2BBE2271C7D587600463F2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A2BBE22A1C7D587600463F2C /* CPEGradeBookCalPoly.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CPEGradeBookCalPoly.xcdatamodel; sourceTree = "<group>"; };
 		A2BBE22C1C7D587600463F2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2BBE2311C7D587600463F2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2BBE2371C7D681500463F2C /* GradeBookModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeBookModel.swift; sourceTree = "<group>"; };
 		A2F5E6A81C7D6C4800611734 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		A2F5E6AA1C7D759400611734 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		E1EFA8CF748163508876F5B9 /* Pods-CPEGradeBookCalPoly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CPEGradeBookCalPoly.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CPEGradeBookCalPoly/Pods-CPEGradeBookCalPoly.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,7 +88,7 @@
 			children = (
 				A2BBE2221C7D587600463F2C /* AppDelegate.swift */,
 				A2F5E6AD1C7D75A400611734 /* Model */,
-				A2F5E6AC1C7D759A00611734 /* ViewControllers */,
+				A2F5E6AC1C7D759A00611734 /* Controllers */,
 				A2F5E6AE1C7D75AC00611734 /* Views */,
 				A2BBE22C1C7D587600463F2C /* Assets.xcassets */,
 				A2BBE2311C7D587600463F2C /* Info.plist */,
@@ -95,13 +97,14 @@
 			path = CPEGradeBookCalPoly;
 			sourceTree = "<group>";
 		};
-		A2F5E6AC1C7D759A00611734 /* ViewControllers */ = {
+		A2F5E6AC1C7D759A00611734 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				A2F5E6AA1C7D759400611734 /* SignInViewController.swift */,
-				A2BBE2241C7D587600463F2C /* ViewController.swift */,
+				A285D5271C84127C00D1E9E2 /* GradeController.swift */,
+				A285D5291C8412F400D1E9E2 /* SettingsController.swift */,
+				A285D52B1C84135900D1E9E2 /* SignInViewController.swift */,
 			);
-			name = ViewControllers;
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		A2F5E6AD1C7D75A400611734 /* Model */ = {
@@ -115,8 +118,8 @@
 		A2F5E6AE1C7D75AC00611734 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A2F5E6A71C7D6C4800611734 /* LaunchScreen.storyboard */,
 				A2BBE2261C7D587600463F2C /* Main.storyboard */,
+				A2F5E6A71C7D6C4800611734 /* LaunchScreen.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -245,8 +248,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2BBE22B1C7D587600463F2C /* CPEGradeBookCalPoly.xcdatamodeld in Sources */,
-				A2BBE2251C7D587600463F2C /* ViewController.swift in Sources */,
-				A2F5E6AB1C7D759400611734 /* SignInViewController.swift in Sources */,
+				A285D5281C84127C00D1E9E2 /* GradeController.swift in Sources */,
+				A285D52C1C84135900D1E9E2 /* SignInViewController.swift in Sources */,
+				A285D52A1C8412F400D1E9E2 /* SettingsController.swift in Sources */,
 				A2BBE2381C7D681500463F2C /* GradeBookModel.swift in Sources */,
 				A2BBE2231C7D587600463F2C /* AppDelegate.swift in Sources */,
 			);

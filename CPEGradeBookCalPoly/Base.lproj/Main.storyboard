@@ -1,35 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="lLf-jB-slN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="v9D-6o-hHM">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--Item 2-->
+        <!--Settings-->
         <scene sceneID="foq-NX-TWh">
             <objects>
-                <viewController id="x6d-JG-g5f" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Settings" id="x6d-JG-g5f" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ELL-Dm-uEb">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.35294117650000001" green="0.63137254899999995" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="byJ-HL-FeX"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="Settings" id="byJ-HL-FeX"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cu5-Ty-cA1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1083" y="592"/>
         </scene>
-        <!--Item 1-->
+        <!--Grades-->
         <scene sceneID="mrn-QD-3W4">
             <objects>
-                <viewController id="Yrt-jc-OXs" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Grades" id="Yrt-jc-OXs" customClass="GradeController" customModule="CPEGradeBookCalPoly" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ilN-EV-Kto">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="RET-VO-cVs">
+                                <rect key="frame" x="0.0" y="64" width="320" height="457"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Yrt-jc-OXs" id="4Vk-jj-xWa"/>
+                                    <outlet property="delegate" destination="Yrt-jc-OXs" id="vWl-b6-BXV"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.35294117650000001" green="0.63137254899999995" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.35294117650000001" green="0.63137254899999995" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="LZm-ON-N0e"/>
+                    <tabBarItem key="tabBarItem" title="Grades" image="List" selectedImage="List" id="LZm-ON-N0e"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yh1-ve-6sx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -38,7 +50,7 @@
         <!--SignInViewController-->
         <scene sceneID="44Z-sN-gNv">
             <objects>
-                <viewController storyboardIdentifier="SignInViewController" title="SignInViewController" id="lLf-jB-slN" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInViewController" title="SignInViewController" id="lLf-jB-slN" customClass="SignInViewController" customModule="CPEGradeBookCalPoly" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rzF-ci-UpB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -61,16 +73,19 @@
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lvR-Z3-4a8" userLabel="Login Button">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lvR-Z3-4a8" userLabel="Login Button" colorLabel="IBBuiltInLabel-Blue">
                                         <rect key="frame" x="89" y="199" width="62" height="29"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                                         <state key="normal" title="Login">
                                             <color key="titleColor" red="0.35294117650000001" green="0.63137254899999995" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginTapped" destination="lLf-jB-slN" eventType="touchUpInside" id="diu-Ti-fAt"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="forgot password?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5Lr-9k-vuT" userLabel="Forgot Password Label">
-                                        <rect key="frame" x="73" y="228" width="94" height="21"/>
+                                        <rect key="frame" x="73" y="233" width="94" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
                                         <color key="textColor" red="0.35294117650000001" green="0.63137254899999995" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -97,12 +112,13 @@
                         <color key="backgroundColor" red="0.35294117650000001" green="0.63137254899999995" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
-                        <segue destination="aNr-iq-Js4" kind="push" id="uku-Su-jHM"/>
+                        <outlet property="loginButton" destination="lvR-Z3-4a8" id="ziW-Z4-f08"/>
+                        <segue destination="v9D-6o-hHM" kind="modal" identifier="LoginSuccessful" id="vJb-Bu-GBm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WVv-g7-R7x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-59" y="264"/>
+            <point key="canvasLocation" x="-667" y="277"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qKb-2s-Nvq">
@@ -123,5 +139,26 @@
             </objects>
             <point key="canvasLocation" x="543" y="277"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="3Xm-rl-e3s">
+            <objects>
+                <navigationController id="v9D-6o-hHM" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="HTN-Hz-Jep"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="MUA-e7-c27">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="aNr-iq-Js4" kind="relationship" relationship="rootViewController" id="q8g-0P-SLc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tWQ-3T-O4m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-61" y="277"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="List" width="25" height="25"/>
+        <image name="Settings" width="25" height="25"/>
+    </resources>
 </document>

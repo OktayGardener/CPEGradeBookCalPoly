@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '23DCF6CFCF0EEAC1DB9CF496'
+               BlueprintIdentifier = '42753F11BF893ABB2FE7B7E3'
                BlueprintName = 'Pods-CPEGradeBookCalPoly'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods_CPEGradeBookCalPoly.framework'>
