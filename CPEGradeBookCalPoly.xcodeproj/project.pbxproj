@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3B5471E853441DE6198A15AF /* Pods_CPEGradeBookCalPoly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AEAAE2AC284EFCE82CEC00A /* Pods_CPEGradeBookCalPoly.framework */; };
+		A21FA3B91C862A46008BF83F /* Section.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21FA3B81C862A46008BF83F /* Section.swift */; };
+		A21FA3BB1C862A54008BF83F /* Enrollments.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21FA3BA1C862A54008BF83F /* Enrollments.swift */; };
+		A21FA3BD1C862A69008BF83F /* UserScores.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21FA3BC1C862A69008BF83F /* UserScores.swift */; };
+		A21FA3BF1C862A75008BF83F /* AssignmentStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A21FA3BE1C862A75008BF83F /* AssignmentStatistics.swift */; };
 		A285D5281C84127C00D1E9E2 /* GradeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A285D5271C84127C00D1E9E2 /* GradeController.swift */; };
 		A285D52A1C8412F400D1E9E2 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A285D5291C8412F400D1E9E2 /* SettingsController.swift */; };
 		A285D52E1C842E4200D1E9E2 /* GradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A285D52D1C842E4200D1E9E2 /* GradeCell.swift */; };
@@ -19,13 +23,16 @@
 		A2BBE2281C7D587600463F2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2BBE2261C7D587600463F2C /* Main.storyboard */; };
 		A2BBE22B1C7D587600463F2C /* CPEGradeBookCalPoly.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2BBE2291C7D587600463F2C /* CPEGradeBookCalPoly.xcdatamodeld */; };
 		A2BBE22D1C7D587600463F2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2BBE22C1C7D587600463F2C /* Assets.xcassets */; };
-		A2BBE2381C7D681500463F2C /* GradeBookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BBE2371C7D681500463F2C /* GradeBookModel.swift */; };
 		A2F5E6A91C7D6C4800611734 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2F5E6A71C7D6C4800611734 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3AEAAE2AC284EFCE82CEC00A /* Pods_CPEGradeBookCalPoly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CPEGradeBookCalPoly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CCDA5BD50A5652BB7DDD604 /* Pods-CPEGradeBookCalPoly.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CPEGradeBookCalPoly.release.xcconfig"; path = "Pods/Target Support Files/Pods-CPEGradeBookCalPoly/Pods-CPEGradeBookCalPoly.release.xcconfig"; sourceTree = "<group>"; };
+		A21FA3B81C862A46008BF83F /* Section.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Section.swift; sourceTree = "<group>"; };
+		A21FA3BA1C862A54008BF83F /* Enrollments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Enrollments.swift; sourceTree = "<group>"; };
+		A21FA3BC1C862A69008BF83F /* UserScores.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserScores.swift; sourceTree = "<group>"; };
+		A21FA3BE1C862A75008BF83F /* AssignmentStatistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssignmentStatistics.swift; sourceTree = "<group>"; };
 		A285D5271C84127C00D1E9E2 /* GradeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeController.swift; sourceTree = "<group>"; };
 		A285D5291C8412F400D1E9E2 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		A285D52D1C842E4200D1E9E2 /* GradeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeCell.swift; sourceTree = "<group>"; };
@@ -43,7 +50,6 @@
 		A2BBE22A1C7D587600463F2C /* CPEGradeBookCalPoly.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CPEGradeBookCalPoly.xcdatamodel; sourceTree = "<group>"; };
 		A2BBE22C1C7D587600463F2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2BBE2311C7D587600463F2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A2BBE2371C7D681500463F2C /* GradeBookModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeBookModel.swift; sourceTree = "<group>"; };
 		A2F5E6A81C7D6C4800611734 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E1EFA8CF748163508876F5B9 /* Pods-CPEGradeBookCalPoly.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CPEGradeBookCalPoly.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CPEGradeBookCalPoly/Pods-CPEGradeBookCalPoly.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,7 +142,10 @@
 		A2F5E6AD1C7D75A400611734 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A2BBE2371C7D681500463F2C /* GradeBookModel.swift */,
+				A21FA3B81C862A46008BF83F /* Section.swift */,
+				A21FA3BA1C862A54008BF83F /* Enrollments.swift */,
+				A21FA3BC1C862A69008BF83F /* UserScores.swift */,
+				A21FA3BE1C862A75008BF83F /* AssignmentStatistics.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -280,9 +289,12 @@
 				A285D52A1C8412F400D1E9E2 /* SettingsController.swift in Sources */,
 				A285D52E1C842E4200D1E9E2 /* GradeCell.swift in Sources */,
 				A285D5391C84F03600D1E9E2 /* NSString+Base64Encoding.m in Sources */,
-				A2BBE2381C7D681500463F2C /* GradeBookModel.swift in Sources */,
+				A21FA3B91C862A46008BF83F /* Section.swift in Sources */,
+				A21FA3BB1C862A54008BF83F /* Enrollments.swift in Sources */,
 				A285D5301C842E8400D1E9E2 /* SettingsCell.swift in Sources */,
 				A2BBE2231C7D587600463F2C /* AppDelegate.swift in Sources */,
+				A21FA3BD1C862A69008BF83F /* UserScores.swift in Sources */,
+				A21FA3BF1C862A75008BF83F /* AssignmentStatistics.swift in Sources */,
 				A285D53D1C84F17700D1E9E2 /* SignInViewController.swift in Sources */,
 				A285D5381C84F03600D1E9E2 /* GradebookURLLoader.m in Sources */,
 			);

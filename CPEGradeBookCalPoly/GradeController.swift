@@ -79,23 +79,8 @@ class GradeController: UITableViewController, UINavigationBarDelegate {
     var dueDate: UInt32!
     
     // Assignment scores
-    var assignmentScores: [[String:AnyObject]] = [[String:AnyObject]]()
-    var assignmentCounts: Int!
-    var assignmentID: Int!
-    var assignmentScore: Int!
-    var assignmentPostDate: UInt32!
     
-    var submittedWork: [String:AnyObject] = [String:AnyObject]()
-    var submittedID: Int!
-    var submittedType: String!
-    var submittedFileExtension: String!
-    var submittedURL: NSURL!
     
-    var feedbackWord: [String:AnyObject] = [String:AnyObject]()
-    var feedbackID: Int!
-    var feedbackType: String!
-    var feedbackFileExtension: String!
-    var feedbackURL: NSURL!
     
 
     override func viewDidLoad() {
