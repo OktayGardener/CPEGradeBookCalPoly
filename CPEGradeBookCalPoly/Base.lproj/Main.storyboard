@@ -15,7 +15,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="iiC-BG-Drf" customClass="SettingsCell" customModule="CPEGradeBookCalPoly" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iiC-BG-Drf" id="CMJ-K6-LCW">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -52,6 +52,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
+                        <sections/>
                         <connections>
                             <outlet property="dataSource" destination="vmS-Ht-AxT" id="ttk-yU-GrB"/>
                             <outlet property="delegate" destination="vmS-Ht-AxT" id="SzJ-ZV-TXV"/>
@@ -60,20 +61,6 @@
                     <tabBarItem key="tabBarItem" title="Grades" image="List" id="gbi-eJ-kPX"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ggw-p3-blD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationBar contentMode="scaleToFill" id="OFV-1E-9It">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <items>
-                        <navigationItem title="Title" id="MSH-w2-n6Q"/>
-                    </items>
-                </navigationBar>
-                <navigationBar contentMode="scaleToFill" id="I54-bF-zeF">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                    <items>
-                        <navigationItem title="Title" id="auH-jS-zEK"/>
-                    </items>
-                </navigationBar>
             </objects>
             <point key="canvasLocation" x="1083" y="-61"/>
         </scene>

@@ -29,6 +29,4 @@ class AssignmentStatistics {
             self.assignmentStDev = assignmentStDev
             self.assignmentAttempts = assignmentAttempts
     }
-    
-    
 }

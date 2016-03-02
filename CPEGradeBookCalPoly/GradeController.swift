@@ -12,82 +12,15 @@ import SwiftyJSON
 class GradeController: UITableViewController, UINavigationBarDelegate {
     let enrollments: String = "?record=enrollments&term=<TERM>&course=<COURSE>"
     
-    
     var fetchedJSONData: JSON!
     
     var userInformation: [String:AnyObject] = [String:AnyObject]()
     
-    // TODO: Below is a ratchet mess that needs to be refactored into modules.
-    
-    // Section data
-    var sectionData: [String:AnyObject] = [String:AnyObject]()
-    
-    var sectionID: Int!
-    var polynum: Int!
-    var courseNumber: Int!
-    
-    var term: String!
-    var termname: String!
-    var dept: String!
-    var courseTitle: String!
-    
-    var firstDay: UInt32!
-    var secondDay: UInt32!
-    
-    // Enrollment, student specific data
-    var enrollmentData: [String:AnyObject] = [String:AnyObject]()
-    
-    var enrollmentID: Int!
-    var role: Int!
-    var dropped: Int!
-    var admimFailure: Int!
-    var ferpa: Int!
-    var emplID: Int!
-    var canEditEnrollment: Int!
-    var studentAge: Int! // age = year
-    
-    var major: String!
-    var firstName: String!
-    var middleName: String!
-    var lastName: String!
-    var bbId: String!
-    var username: String!
-    var cscUsername: String!
-    
-    // Image data
-    var imageData: [String:AnyObject] = [String:AnyObject]()
-    
-    var imageID: Int!
-    var imageType: String!
-    var imageFileExtension: String!
-    var imageURL: NSURL!
-    
-    // User scores
-    var userScores: [String:AnyObject] = [String:AnyObject]()
-    
-    var userScoreID: Int!
-    var maxPoints: Int!
-    
-    var assignmentName: String!
-    
-    var extraCreditAllowed: Int!
-    var emailNotification: Int!
-    var sortOrder: Int!
-    var computeFunc: Int!
-    var displayType: Int!
-    
-    var dueDate: UInt32!
-    
-    // Assignment scores
-    
-    
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         print("fetchedJSON from GradeController: \(fetchedJSONData)")
         parseJSON(fetchedJSONData)
-        
         /* Navbar test */
         
         let navigationBar = UINavigationBar(frame: CGRectMake(0, 0, self.view.frame.size.width, 44)) // Offset by 20 pixels vertically to take the status bar into account
@@ -110,7 +43,9 @@ class GradeController: UITableViewController, UINavigationBarDelegate {
         navigationBar.items = [navigationItem]
         
         // Make the navigation bar a subview of the current view controller
-        self.view.addSubview(navigationBar)
+        navigationBar.addSubview(self.view)
+        //self.view.addSubview(navigationBar)
+        
 
 
         // Uncomment the following line to preserve selection between presentations
