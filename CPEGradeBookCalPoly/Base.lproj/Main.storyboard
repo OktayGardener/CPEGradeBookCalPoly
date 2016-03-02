@@ -8,19 +8,39 @@
         <!--Settings-->
         <scene sceneID="uuv-Z0-O0N">
             <objects>
-                <tableViewController storyboardIdentifier="SettingsController" id="pKK-wN-OHo" customClass="SettingsController" customModule="CPEGradeBookCalPoly" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="7FS-ja-5Lu">
+                <tableViewController storyboardIdentifier="SettingsController" title="Settings" id="pKK-wN-OHo" customClass="SettingsController" customModule="CPEGradeBookCalPoly" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="54" sectionHeaderHeight="28" sectionFooterHeight="28" id="7FS-ja-5Lu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="iiC-BG-Drf" customClass="SettingsCell" customModule="CPEGradeBookCalPoly" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingsCell" id="iiC-BG-Drf" customClass="SettingsCell" customModule="CPEGradeBookCalPoly" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="122" width="320" height="54"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iiC-BG-Drf" id="CMJ-K6-LCW">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="53.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kXT-sv-fih" userLabel="Description Label">
+                                            <rect key="frame" x="17" y="28" width="285" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="14"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cbm-ub-Boj" userLabel="Title Label">
+                                            <rect key="frame" x="17" y="8" width="295" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="descriptionLabel" destination="kXT-sv-fih" id="mQz-Yh-VWC"/>
+                                    <outlet property="titleLabel" destination="cbm-ub-Boj" id="RHt-IX-qdA"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -44,7 +64,7 @@
                         <color key="backgroundColor" red="0.35294117650000001" green="0.63137254899999995" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="dmf-xu-R1C" customClass="GradeCell" customModule="CPEGradeBookCalPoly" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="122" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dmf-xu-R1C" id="hGl-i1-Mz0">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -59,6 +79,7 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Grades" image="List" id="gbi-eJ-kPX"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ggw-p3-blD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -146,6 +167,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.35294117650000001" green="0.63137254899999995" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="qpC-gc-kuN"/>
                     <connections>
                         <outlet property="loginButton" destination="lvR-Z3-4a8" id="ziW-Z4-f08"/>
                         <outlet property="loginContainer" destination="GDi-yj-hzq" id="uhb-vN-yCz"/>
@@ -165,6 +187,7 @@
             <objects>
                 <tabBarController id="aNr-iq-Js4" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="tin-I4-qFg"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="8lC-vC-yS3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
