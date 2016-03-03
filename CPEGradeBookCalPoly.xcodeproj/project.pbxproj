@@ -16,8 +16,6 @@
 		A285D52A1C8412F400D1E9E2 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A285D5291C8412F400D1E9E2 /* SettingsController.swift */; };
 		A285D52E1C842E4200D1E9E2 /* GradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A285D52D1C842E4200D1E9E2 /* GradeCell.swift */; };
 		A285D5301C842E8400D1E9E2 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A285D52F1C842E8400D1E9E2 /* SettingsCell.swift */; };
-		A285D5381C84F03600D1E9E2 /* GradebookURLLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = A285D5351C84F03600D1E9E2 /* GradebookURLLoader.m */; };
-		A285D5391C84F03600D1E9E2 /* NSString+Base64Encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = A285D5371C84F03600D1E9E2 /* NSString+Base64Encoding.m */; };
 		A285D53D1C84F17700D1E9E2 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A285D53C1C84F17700D1E9E2 /* SignInViewController.swift */; };
 		A2BBE2231C7D587600463F2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BBE2221C7D587600463F2C /* AppDelegate.swift */; };
 		A2BBE22B1C7D587600463F2C /* CPEGradeBookCalPoly.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A2BBE2291C7D587600463F2C /* CPEGradeBookCalPoly.xcdatamodeld */; };
@@ -37,12 +35,6 @@
 		A285D5291C8412F400D1E9E2 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		A285D52D1C842E4200D1E9E2 /* GradeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeCell.swift; sourceTree = "<group>"; };
 		A285D52F1C842E8400D1E9E2 /* SettingsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
-		A285D5321C84F03600D1E9E2 /* CPEGradeBookCalPoly-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CPEGradeBookCalPoly-Bridging-Header.h"; sourceTree = "<group>"; };
-		A285D5331C84F03600D1E9E2 /* GradebookExample-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GradebookExample-Bridging-Header.h"; sourceTree = "<group>"; };
-		A285D5341C84F03600D1E9E2 /* GradebookURLLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradebookURLLoader.h; sourceTree = "<group>"; };
-		A285D5351C84F03600D1E9E2 /* GradebookURLLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradebookURLLoader.m; sourceTree = "<group>"; };
-		A285D5361C84F03600D1E9E2 /* NSString+Base64Encoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Base64Encoding.h"; sourceTree = "<group>"; };
-		A285D5371C84F03600D1E9E2 /* NSString+Base64Encoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64Encoding.m"; sourceTree = "<group>"; };
 		A285D53C1C84F17700D1E9E2 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		A2BBE21F1C7D587600463F2C /* CPEGradeBookCalPoly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CPEGradeBookCalPoly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2BBE2221C7D587600463F2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,19 +75,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A285D5311C84F00900D1E9E2 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				A285D5331C84F03600D1E9E2 /* GradebookExample-Bridging-Header.h */,
-				A285D5341C84F03600D1E9E2 /* GradebookURLLoader.h */,
-				A285D5351C84F03600D1E9E2 /* GradebookURLLoader.m */,
-				A285D5361C84F03600D1E9E2 /* NSString+Base64Encoding.h */,
-				A285D5371C84F03600D1E9E2 /* NSString+Base64Encoding.m */,
-				A285D5321C84F03600D1E9E2 /* CPEGradeBookCalPoly-Bridging-Header.h */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		A2BBE2161C7D587600463F2C = {
 			isa = PBXGroup;
 			children = (
@@ -124,7 +103,6 @@
 				A2BBE22C1C7D587600463F2C /* Assets.xcassets */,
 				A2BBE2311C7D587600463F2C /* Info.plist */,
 				A2BBE2291C7D587600463F2C /* CPEGradeBookCalPoly.xcdatamodeld */,
-				A285D5311C84F00900D1E9E2 /* Supporting Files */,
 			);
 			path = CPEGradeBookCalPoly;
 			sourceTree = "<group>";
@@ -288,7 +266,6 @@
 				A285D5281C84127C00D1E9E2 /* GradeController.swift in Sources */,
 				A285D52A1C8412F400D1E9E2 /* SettingsController.swift in Sources */,
 				A285D52E1C842E4200D1E9E2 /* GradeCell.swift in Sources */,
-				A285D5391C84F03600D1E9E2 /* NSString+Base64Encoding.m in Sources */,
 				A21FA3B91C862A46008BF83F /* Section.swift in Sources */,
 				A21FA3BB1C862A54008BF83F /* Enrollments.swift in Sources */,
 				A285D5301C842E8400D1E9E2 /* SettingsCell.swift in Sources */,
@@ -296,7 +273,6 @@
 				A21FA3BD1C862A69008BF83F /* UserScores.swift in Sources */,
 				A21FA3BF1C862A75008BF83F /* AssignmentStatistics.swift in Sources */,
 				A285D53D1C84F17700D1E9E2 /* SignInViewController.swift in Sources */,
-				A285D5381C84F03600D1E9E2 /* GradebookURLLoader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
