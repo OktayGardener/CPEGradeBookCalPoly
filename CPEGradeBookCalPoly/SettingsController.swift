@@ -14,7 +14,7 @@ class SettingsController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        settingItems[0] = [1: "logout", 2: "bye felicia", 3: "logOut"]
+        settingItems[0] = [1: "logout", 2: "bye felicia"]
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -28,13 +28,20 @@ class SettingsController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func handleLogOut() {
+        let alert = UIAlertController(title: "Log out", message: "Are you sure you want to log out?", preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Default, handler:{_ in self.logOut()}))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
     func logOut() {
         print("logout called")
-        var window: UIWindow?
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        let signInViewController: AnyObject! = storyboard.instantiateViewControllerWithIdentifier("SignInViewController")
-        window?.rootViewController = signInViewController as? UIViewController
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let signInViewController: UIViewController! = storyboard.instantiateViewControllerWithIdentifier("SignInViewController")
+        presentViewController(signInViewController, animated: true, completion: nil)
     }
     
     // MARK: - Table view data source
@@ -57,7 +64,6 @@ class SettingsController: UITableViewController {
                 switch key {
                     case _ where (key == 1): cell.titleLabel.text = value
                     case _ where (key == 2): cell.descriptionLabel.text = value
-                    case _ where (key == 3): cell.targetForAction(Selector(value), withSender: self)
                     default: break
                 }
             }
@@ -66,15 +72,13 @@ class SettingsController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
-        if let selectedItem = settingItems[indexPath.row] {
-            for (key, value) in selectedItem {
-                if key == 3 {
-                    
-                }
-            }
-        }
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        print(indexPath.row)
         
+        switch indexPath.row {
+            case 0: self.handleLogOut()
+            default: break
+        }
     }
     
 
