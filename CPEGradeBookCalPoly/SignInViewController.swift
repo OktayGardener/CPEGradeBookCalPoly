@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+
 class SignInViewController: UIViewController {
 
     @IBOutlet weak var loginContainer: UIView!
@@ -21,7 +22,8 @@ class SignInViewController: UIViewController {
     @IBOutlet var passwordField: UITextField!
     @IBOutlet var urlField: UITextField!
     
-    let jsonEndpoint: String = "https://users.csc.calpoly.edu/~bellardo/cgi-bin/test/grades.json"
+    let testJsonEndpoint: String = "https://users.csc.calpoly.edu/~bellardo/cgi-bin/test/grades.json"
+    let jsonEndpoint: String = "https://users.csc.calpoly.edu/~bellardo/cgi-bin/grades.json"
     
     var fetchedJSONData: JSON!
     
@@ -31,13 +33,12 @@ class SignInViewController: UIViewController {
     }
     
     
-    
     // MARK: View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        urlField.text = self.jsonEndpoint
+        urlField.text = self.testJsonEndpoint
         
         self.loginContainer.layer.cornerRadius = self.loginContainer.frame.size.width / 16
         
@@ -59,11 +60,12 @@ class SignInViewController: UIViewController {
     // MARK: Login
     
     @IBAction func testLogin(sender: AnyObject) {
-        urlField.text = self.jsonEndpoint
+        urlField.text = self.testJsonEndpoint
         usernameField.text = "test"
         passwordField.text = "xSTUULjV"
         login(sender)
     }
+
     
     @IBAction func checkCredentials(sender: AnyObject) {
         if usernameField.text != "" && passwordField.text != "" && urlField != "" {
@@ -80,23 +82,36 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func login(sender: AnyObject) {
-        let gradesEndpoint = self.jsonEndpoint + "?record=sections"
-        Alamofire.request(.GET, gradesEndpoint)
-            .authenticate(user: usernameField.text!, password: passwordField.text!)
-            .responseJSON { response in
-                switch response.result {
-                case .Success:
-                    if let value = response.result.value {
-                        self.fetchedJSONData = JSON(value)
-                        print("JSON: \(self.fetchedJSONData)")
-                        self.performSegueWithIdentifier("LoginSuccessful", sender: self)
-                    }
-                case .Failure(let error):
-                    print(error)
-                    print("Auth failed!")
-                    self.presentAlert("Authentication error", alertMessage: "Authentication failed. Check your credentials!", dismissMessage: "Ok")
-                }
+        let loader = GradebookURLLoader()
+        loader.baseURL = NSURL(string: self.testJsonEndpoint)!
+        if loader.loginWithUsername(usernameField.text!, andPassword: passwordField.text!) {
+            print("Auth worked!")
+            let data = try? loader.loadDataFromPath("?record=sections")
+            
+            if let data = try? loader.loadDataFromPath("?record=sections") {
+                self.fetchedJSONData = JSON(nsdataToJSON(data)!)
+                print("data json: ", fetchedJSONData)
+            }
+            
+            let str = NSString(data: data!, encoding: NSUTF8StringEncoding)
+            
+            print("Data: \(str)")
+            self.performSegueWithIdentifier("LoginSuccessful", sender: self)
         }
+        else {
+            print("Auth failed!")
+            self.presentAlert("Authentication error", alertMessage: "Authentication failed. Check your credentials!", dismissMessage: "Ok")
+        }
+    }
+    
+    // MARK: JSON
+    func nsdataToJSON(data: NSData) -> AnyObject? {
+        do {
+            return try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers)
+        } catch let myJSONError {
+            print(myJSONError)
+        }
+        return nil
     }
     
     // MARK: - Navigation

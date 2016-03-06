@@ -10,44 +10,24 @@ import UIKit
 import SwiftyJSON
 
 class GradeController: UITableViewController, UINavigationBarDelegate {
+    
+    @IBOutlet var welcomeLabel: UILabel! = UILabel()
+    @IBOutlet var userAvatar: UIImageView! = UIImageView()
+    
     let enrollments: String = "?record=enrollments&term=<TERM>&course=<COURSE>"
     
     var fetchedJSONData: JSON!
     
     var userInformation: [String:AnyObject] = [String:AnyObject]()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         print("fetchedJSON from GradeController: \(fetchedJSONData)")
         parseJSON(fetchedJSONData)
-        /* Navbar test */
+        self.userAvatar.layer.cornerRadius = self.userAvatar.frame.width / 2
         
-        let navigationBar = UINavigationBar(frame: CGRectMake(0, 0, self.view.frame.size.width, 44)) // Offset by 20 pixels vertically to take the status bar into account
-        navigationBar.backgroundColor = UIColor.whiteColor()
-        navigationBar.delegate = self;
-        
-        // Create a navigation item with a title
-        let navigationItem = UINavigationItem()
-        navigationItem.title = "Title"
-        
-        // Create left and right button for navigation item
-        let leftButton =  UIBarButtonItem(title: "Save", style:   UIBarButtonItemStyle.Plain, target: self, action: "btn_clicked:")
-        let rightButton = UIBarButtonItem(title: "Right", style: UIBarButtonItemStyle.Plain, target: self, action: nil)
-        
-        // Create two buttons for the navigation item
-        navigationItem.leftBarButtonItem = leftButton
-        navigationItem.rightBarButtonItem = rightButton
-        
-        // Assign the navigation item to the navigation bar
-        navigationBar.items = [navigationItem]
-        
-        // Make the navigation bar a subview of the current view controller
-        navigationBar.addSubview(self.view)
-        //self.view.addSubview(navigationBar)
-        
-
-
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -58,7 +38,20 @@ class GradeController: UITableViewController, UINavigationBarDelegate {
     // MARK: JSON
     func parseJSON(jsonData: JSON) {
         var currentSection: [String: AnyObject] = [String:AnyObject]()
-        print("parseJSON:\(jsonData)")
+        print("parseJSON:")
+        
+        for section in jsonData["sections"] {
+            // how to know how many sections? for 0..<section.length? no. lol maybe
+            3
+        }
+        
+        if let dept = jsonData["sections"]["dept"].string {
+            print("second ", dept)
+        }
+        
+        for (key,subJson):(String, JSON) in jsonData {
+            print(key, subJson)
+        }
         
 //        if let userName = json[0]["user"]["name"].string {
 //            //Now you got your value
@@ -70,6 +63,16 @@ class GradeController: UITableViewController, UINavigationBarDelegate {
         // Dispose of any resources that can be recreated.
     }
 
+    // MARK: TableViewHeader
+    func resetTableViewHeaderView() {
+        self.tableView.beginUpdates()
+        self.tableView.tableHeaderView = self.tableView.tableHeaderView
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

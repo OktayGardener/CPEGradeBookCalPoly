@@ -15,6 +15,7 @@ class SettingsController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         settingItems[0] = [1: "logout", 2: "bye felicia"]
+        settingItems[1] = [1: "about", 2: "wat is dis"]
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -27,6 +28,13 @@ class SettingsController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    // MARK: About view
+    func presentAboutView() {
+        performSegueWithIdentifier("presentAboutViewController", sender: nil)
+    }
+    
+    // MARK: Log out
 
     func handleLogOut() {
         let alert = UIAlertController(title: "Log out", message: "Are you sure you want to log out?", preferredStyle: UIAlertControllerStyle.Alert)
@@ -37,7 +45,6 @@ class SettingsController: UITableViewController {
     
     func logOut() {
         print("logout called")
-        
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let signInViewController: UIViewController! = storyboard.instantiateViewControllerWithIdentifier("SignInViewController")
@@ -77,6 +84,7 @@ class SettingsController: UITableViewController {
         
         switch indexPath.row {
             case 0: self.handleLogOut()
+            case 1: self.presentAboutView()
             default: break
         }
     }
