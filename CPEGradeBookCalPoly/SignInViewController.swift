@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-
+import Locksmith
 
 class SignInViewController: UIViewController {
 
@@ -26,6 +26,20 @@ class SignInViewController: UIViewController {
     let jsonEndpoint: String = "https://users.csc.calpoly.edu/~bellardo/cgi-bin/grades.json"
     
     var fetchedJSONData: JSON!
+    
+    struct GradeBookAccount: ReadableSecureStorable,
+        CreateableSecureStorable,
+        DeleteableSecureStorable,
+    GenericPasswordSecureStorable {
+        let username: String
+        let password: String
+        
+        let service = "GradeBook"
+        var account: String { return username }
+        var data: [String: AnyObject] {
+            return ["password": password]
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -83,9 +97,10 @@ class SignInViewController: UIViewController {
     
     @IBAction func login(sender: AnyObject) {
         let loader = GradebookURLLoader()
-        loader.baseURL = NSURL(string: self.testJsonEndpoint)!
+        loader.baseURL = NSURL(string: self.jsonEndpoint)!
         if loader.loginWithUsername(usernameField.text!, andPassword: passwordField.text!) {
             print("Auth worked!")
+            
             let data = try? loader.loadDataFromPath("?record=sections")
             
             if let data = try? loader.loadDataFromPath("?record=sections") {

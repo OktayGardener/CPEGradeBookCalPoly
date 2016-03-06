@@ -10,6 +10,13 @@ import UIKit
 
 class GradeCell: UITableViewCell {
 
+    @IBOutlet var courseName: UILabel! = UILabel()
+    @IBOutlet var courseNumber: UILabel! = UILabel()
+    @IBOutlet var dept: UILabel! = UILabel()
+    @IBOutlet var termName: UILabel! = UILabel()
+    @IBOutlet var startDate: UILabel! = UILabel()
+    @IBOutlet var endDate: UILabel! = UILabel()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

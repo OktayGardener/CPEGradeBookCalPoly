@@ -22,7 +22,7 @@ class Section {
     var firstDay: NSDate!
     var lastDay: NSDate!
     
-    var sections: [Section] = [Section]()
+    
     
     init(id: Int, polynum: Int, term: Int, termName: String, dept: String, courseNumber: String, courseTitle: String, firstDay: NSDate, lastDay: NSDate) {
         self.id = id

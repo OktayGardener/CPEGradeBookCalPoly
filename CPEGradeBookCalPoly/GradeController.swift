@@ -18,14 +18,14 @@ class GradeController: UITableViewController, UINavigationBarDelegate {
     
     var fetchedJSONData: JSON!
     
-    var userInformation: [String:AnyObject] = [String:AnyObject]()
-    
+    var userInformation: [Enrollments] = [Enrollments]()
+    var sections: [Section] = [Section]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("fetchedJSON from GradeController: \(fetchedJSONData)")
-        parseJSON(fetchedJSONData)
+        parseSectionJSON(fetchedJSONData)
+        
         self.userAvatar.layer.cornerRadius = self.userAvatar.frame.width / 2
         
         // Uncomment the following line to preserve selection between presentations
@@ -36,33 +36,60 @@ class GradeController: UITableViewController, UINavigationBarDelegate {
     }
     
     // MARK: JSON
-    func parseJSON(jsonData: JSON) {
-        var currentSection: [String: AnyObject] = [String:AnyObject]()
-        print("parseJSON:")
-        
-        for section in jsonData["sections"] {
-            // how to know how many sections? for 0..<section.length? no. lol maybe
-            3
+    func parseSectionJSON(jsonData: JSON) {
+        if let sections = jsonData["sections"].array {
+            print(sections.count)
+            for section in sections {
+                var currentSection = Section(
+                id: section["id"].int!,
+                polynum: section["polynum"].int!,
+                term: section["term"].int!,
+                termName: section["termname"].string!,
+                dept: section["dept"].string!,
+                courseNumber: section["course"].string!,
+                courseTitle: section["title"].string!,
+                firstDay: NSDate(timeIntervalSince1970: NSTimeInterval(section["first_day"].int!)),
+                lastDay: NSDate(timeIntervalSince1970: NSTimeInterval(section["last_day"].int!)))
+                
+                self.sections.append(currentSection)
+            }
         }
-        
-        if let dept = jsonData["sections"]["dept"].string {
-            print("second ", dept)
-        }
-        
-        for (key,subJson):(String, JSON) in jsonData {
-            print(key, subJson)
-        }
-        
-//        if let userName = json[0]["user"]["name"].string {
-//            //Now you got your value
+        self.tableView.reloadData()
+    }
+// TODO:
+    // Implement Locksmith and store accounts, cache whats needed
+    // GradeController->EnrollmentController->SubmissionController?
+    // Make sure JSON requests and parsing is happening where they should be
+      // request info about student first login, cache it maybe
+    // Autolayout
+    // Done
+    
+//    func retrieveEnrollmentJSON(term: Int, course: String) -> JSON {
+//        
+//    }
+//    
+//    func parseEnrollmentJSON(jsonData: JSON) {
+//        if let sections = jsonData["sections"].array {
+//            print(sections.count)
+//            for section in sections {
+//                var currentSection = Section(
+//                    id: section["id"].int!,
+//                    polynum: section["polynum"].int!,
+//                    term: section["term"].int!,
+//                    termName: section["termname"].string!,
+//                    dept: section["dept"].string!,
+//                    courseNumber: section["course"].string!,
+//                    courseTitle: section["title"].string!,
+//                    firstDay: NSDate(timeIntervalSince1970: NSTimeInterval(section["first_day"].int!)),
+//                    lastDay: NSDate(timeIntervalSince1970: NSTimeInterval(section["last_day"].int!)))
+//                
+//                self.sections.append(currentSection)
+//            }
 //        }
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+//        self.tableView.reloadData()
+//    }
+    
+    
     // MARK: TableViewHeader
     func resetTableViewHeaderView() {
         self.tableView.beginUpdates()
@@ -81,16 +108,28 @@ class GradeController: UITableViewController, UINavigationBarDelegate {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return userInformation.count
+        return sections.count
     }
 
     // TODO: Look up how to make an expandable cell.
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! GradeCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("GradeCell", forIndexPath: indexPath) as! GradeCell
+        let current = self.sections[indexPath.row]
+        
+        cell.courseName.text = current.courseTitle
+        cell.courseNumber.text = current.courseNumber
+        cell.dept.text = current.dept
+        cell.termName.text = current.termName
+        cell.startDate.text = String(current.firstDay)
+        cell.endDate.text = String(current.lastDay)
         
         return cell
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 
 
