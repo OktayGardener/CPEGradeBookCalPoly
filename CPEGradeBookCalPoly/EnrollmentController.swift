@@ -11,47 +11,74 @@ import SwiftyJSON
 
 class EnrollmentController: UITableViewController, UINavigationBarDelegate {
     var loader: GradebookURLLoader!
+    var currentSection: Section!
+    var enrollments: [Enrollments] = [Enrollments]()
+    var fetchedUserInformationJSONData: JSON!
+
+    let enrollmentSuffix: String = "?record=enrollments&term=<TERM>&course=<COURSE>"
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //requestUserInformationJSON()
+        //parseUserInformationJSON(self.fetchedUserInformationJSONData)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
     }
+
+    // MARK: JSON
+    
+    func parseUserInformationJSON(jsonData: JSON) {
+        if let user = jsonData[""].array {
+            
+        }
+    }
+    
+    func requestUserInformationJSON() {
+        if let currentSection = currentSection {
+            let path = self.enrollmentSuffix
+                .stringByReplacingOccurrencesOfString("<TERM>", withString: String(currentSection.term))
+                .stringByReplacingOccurrencesOfString("<COURSE>", withString: currentSection.courseNumber)
+            if let data = try? self.loader.loadDataFromPath(path) {
+                self.fetchedUserInformationJSONData = JSON(nsdataToJSON(data)!)
+            }
+        }
+    }
+    
+    func nsdataToJSON(data: NSData) -> AnyObject? {
+        do {
+            return try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers)
+        } catch let myJSONError {
+            print(myJSONError)
+        }
+        return nil
+    }
+    
+    // MARK: - Table view data source
+    
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return enrollments.count
+    }
+    
+    // TODO: Look up how to make an expandable cell.
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("GradeCell", forIndexPath: indexPath) as! GradeCell
+        let current = self.enrollments[indexPath.row]
+        
+        return cell
+    }
     
     // TODO:
-    // Implement Locksmith and store accounts, cache whats needed
-    // GradeController->EnrollmentController->SubmissionController?
-    // Make sure JSON requests and parsing is happening where they should be
-    // request info about student first login, cache it maybe
+    // Finish Enrollment
+    // Finish last parsing
     // Autolayout
     // Done
-    
-    //    func retrieveEnrollmentJSON(term: Int, course: String) -> JSON {
-    //
-    //    }
-    //
-    //    func parseEnrollmentJSON(jsonData: JSON) {
-    //        if let sections = jsonData["sections"].array {
-    //            print(sections.count)
-    //            for section in sections {
-    //                var currentSection = Section(
-    //                    id: section["id"].int!,
-    //                    polynum: section["polynum"].int!,
-    //                    term: section["term"].int!,
-    //                    termName: section["termname"].string!,
-    //                    dept: section["dept"].string!,
-    //                    courseNumber: section["course"].string!,
-    //                    courseTitle: section["title"].string!,
-    //                    firstDay: NSDate(timeIntervalSince1970: NSTimeInterval(section["first_day"].int!)),
-    //                    lastDay: NSDate(timeIntervalSince1970: NSTimeInterval(section["last_day"].int!)))
-    //
-    //                self.sections.append(currentSection)
-    //            }
-    //        }
-    //        self.tableView.reloadData()
-    //    }
-    
 }

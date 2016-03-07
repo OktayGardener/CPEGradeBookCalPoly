@@ -134,35 +134,25 @@
             </objects>
             <point key="canvasLocation" x="2891" y="638"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Enrollments-->
         <scene sceneID="ZQM-8n-HSK">
             <objects>
-                <tableViewController id="hr2-3h-S68" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hLj-Zv-crn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController storyboardIdentifier="EnrollmentController" title="Enrollments" id="hr2-3h-S68" customClass="EnrollmentController" customModule="CPEGradeBookCalPoly" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Uot-A7-K7T">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.35475744450000002" green="0.63303285259999997" blue="0.5599315533" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="sectionIndexBackgroundColor" red="0.3989009094" green="0.72384049770000003" blue="0.64599520590000004" alpha="1" colorSpace="calibratedRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="TS9-VQ-sYx">
-                            <rect key="frame" x="0.0" y="64" width="600" height="160"/>
+                            <rect key="frame" x="0.0" y="94" width="600" height="40"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Oktay" translatesAutoresizingMaskIntoConstraints="NO" id="0qw-Nu-sfP">
-                                    <rect key="frame" x="265" y="8" width="80" height="80"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select an enrollment " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgm-EW-9Tk">
+                                    <rect key="frame" x="214" y="9" width="172" height="21"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="80" id="Nq2-Z4-yfq"/>
-                                        <constraint firstAttribute="width" constant="80" id="ZV4-k3-8ZL"/>
-                                    </constraints>
-                                </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xvg-ZR-Ura">
-                                    <rect key="frame" x="268.5" y="96" width="75" height="21"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <nil key="highlightedColor"/>
-                                </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgm-EW-9Tk">
-                                    <rect key="frame" x="238" y="125" width="135" height="21"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="135" id="vM6-9I-ct7"/>
+                                        <constraint firstAttribute="width" constant="172" id="hap-a9-LQB"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -171,24 +161,20 @@
                             </subviews>
                             <color key="backgroundColor" red="0.28973045559999999" green="0.52574118589999996" blue="0.46920044779999998" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstAttribute="bottom" secondItem="hgm-EW-9Tk" secondAttribute="bottom" constant="14" id="0gb-W2-WVX"/>
-                                <constraint firstItem="hgm-EW-9Tk" firstAttribute="centerX" secondItem="TS9-VQ-sYx" secondAttribute="centerX" constant="5.5" id="4pc-4u-BtA"/>
-                                <constraint firstItem="xvg-ZR-Ura" firstAttribute="centerX" secondItem="TS9-VQ-sYx" secondAttribute="centerX" constant="5.5" id="BS5-Os-Fat"/>
-                                <constraint firstItem="xvg-ZR-Ura" firstAttribute="top" secondItem="0qw-Nu-sfP" secondAttribute="bottom" constant="8" symbolic="YES" id="HWZ-ab-pmg"/>
-                                <constraint firstItem="0qw-Nu-sfP" firstAttribute="top" secondItem="TS9-VQ-sYx" secondAttribute="topMargin" id="UX5-ax-3q1"/>
-                                <constraint firstItem="hgm-EW-9Tk" firstAttribute="top" secondItem="xvg-ZR-Ura" secondAttribute="bottom" constant="8" symbolic="YES" id="jfg-5y-xFS"/>
-                                <constraint firstItem="0qw-Nu-sfP" firstAttribute="centerX" secondItem="xvg-ZR-Ura" secondAttribute="centerX" constant="-1" id="qfy-LW-zoj"/>
-                                <constraint firstItem="xvg-ZR-Ura" firstAttribute="centerY" secondItem="TS9-VQ-sYx" secondAttribute="centerY" constant="26.5" id="xdG-3S-pbe"/>
+                                <constraint firstItem="hgm-EW-9Tk" firstAttribute="top" secondItem="TS9-VQ-sYx" secondAttribute="top" constant="9" id="Abn-6P-bFl"/>
+                                <constraint firstItem="hgm-EW-9Tk" firstAttribute="centerY" secondItem="TS9-VQ-sYx" secondAttribute="centerY" id="CAw-1T-c6X"/>
+                                <constraint firstItem="hgm-EW-9Tk" firstAttribute="centerX" secondItem="TS9-VQ-sYx" secondAttribute="centerX" id="rFS-e2-Oma"/>
                             </constraints>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="K54-wI-rq6">
-                                <rect key="frame" x="0.0" y="252" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="162" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K54-wI-rq6" id="tVD-oF-CqE">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.35475744450000002" green="0.63303285259999997" blue="0.5599315533" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -197,10 +183,10 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Dp3-Dh-Gha"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hLj-Zv-crn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3150" y="-64.436619718309856"/>
+            <point key="canvasLocation" x="3150" y="-65"/>
         </scene>
         <!--Grades-->
         <scene sceneID="3K5-Aj-GZA">
@@ -309,6 +295,7 @@
                                     <outlet property="endDate" destination="fYW-tS-oEI" id="iVV-Sb-fba"/>
                                     <outlet property="startDate" destination="VJp-82-f4L" id="Z0b-WG-mvs"/>
                                     <outlet property="termName" destination="w92-bG-MAN" id="Mil-el-EQH"/>
+                                    <segue destination="hr2-3h-S68" kind="showDetail" identifier="EnrollmentDetail" action="showViewController:sender:" id="92f-Uk-gVv"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -323,7 +310,6 @@
                     <connections>
                         <outlet property="userAvatar" destination="2O7-Eb-bxN" id="5Hb-ZD-FJQ"/>
                         <outlet property="welcomeLabel" destination="9hG-gM-RTJ" id="Dpe-ZL-NYd"/>
-                        <segue destination="hr2-3h-S68" kind="show" identifier="GradeSpecificationViewController" id="Ijt-JA-w0y"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ggw-p3-blD" userLabel="First Responder" sceneMemberID="firstResponder"/>

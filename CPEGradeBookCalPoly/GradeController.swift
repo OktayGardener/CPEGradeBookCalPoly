@@ -14,10 +14,8 @@ class GradeController: UITableViewController, UINavigationBarDelegate {
     @IBOutlet var welcomeLabel: UILabel! = UILabel()
     @IBOutlet var userAvatar: UIImageView! = UIImageView()
     
-    let enrollments: String = "?record=enrollments&term=<TERM>&course=<COURSE>"
+    var fetchedSectionJSONData: JSON!
     
-    
-    var fetchedJSONData: JSON!
     var loader: GradebookURLLoader!
     
     var userInformation: [Enrollments] = [Enrollments]()
@@ -27,10 +25,11 @@ class GradeController: UITableViewController, UINavigationBarDelegate {
         super.viewDidLoad()
         
         if let data = try? self.loader.loadDataFromPath("?record=sections") {
-            self.fetchedJSONData = JSON(nsdataToJSON(data)!)
+            self.fetchedSectionJSONData = JSON(nsdataToJSON(data)!)
         }
         
-        parseSectionJSON(fetchedJSONData)
+        parseSectionJSON(fetchedSectionJSONData)
+        
         
         self.userAvatar.layer.cornerRadius = self.userAvatar.frame.width / 2
         
@@ -46,7 +45,7 @@ class GradeController: UITableViewController, UINavigationBarDelegate {
         if let sections = jsonData["sections"].array {
             print(sections.count)
             for section in sections {
-                var currentSection = Section(
+                let currentSection = Section(
                 id: section["id"].int!,
                 polynum: section["polynum"].int!,
                 term: section["term"].int!,
@@ -63,8 +62,6 @@ class GradeController: UITableViewController, UINavigationBarDelegate {
         self.tableView.reloadData()
     }
     
-    
-    // MARK: JSON
     func nsdataToJSON(data: NSData) -> AnyObject? {
         do {
             return try NSJSONSerialization.JSONObjectWithData(data, options: .MutableContainers)
@@ -112,17 +109,22 @@ class GradeController: UITableViewController, UINavigationBarDelegate {
         return cell
     }
     
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "EnrollmentDetail", let destination = segue.destinationViewController as? EnrollmentController {
+            if let cell = sender as? GradeCell, let indexPath = tableView.indexPathForCell(cell) {
+                var current = self.sections[indexPath.row]
+                destination.loader = self.loader
+                destination.currentSection = current
+            }
+        }
     }
 
 }

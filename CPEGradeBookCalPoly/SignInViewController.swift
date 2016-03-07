@@ -152,7 +152,6 @@ class SignInViewController: UIViewController {
             let tabBarController = navController.viewControllers.first as! UITabBarController
             let destionationController = tabBarController.viewControllers!.first as! GradeController
             
-            destionationController.fetchedJSONData = self.fetchedJSONData
             destionationController.loader = self.loader
         }
     }

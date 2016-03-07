@@ -23,11 +23,11 @@ class Enrollments {
     var firstName: String!
     var middleName: String!
     var lastName: String!
-    var bbId: String!
+    var bbID: String!
     var username: String!
     var cscUsername: String!
     
-    var picture: [Picture] = [Picture]()
+    var picture: Picture!
     
     // Image data
     internal class Picture {
@@ -42,8 +42,26 @@ class Enrollments {
             self.fileExtension = fileExtension
             self.URL = URL
         }
+    }
+    
+    init(enrollmentID: Int, role: Int, dropped: Int, adminFailure: Int, ferpa: Int, emplID: Int, canEditEnrollment: Int, studentAge: Int, major: String, firstName: String, middleName: String, lastName: String, bbID: String, username: String, cscUsername: String, picture: Picture) {
+        self.enrollmentID = enrollmentID
+        self.role = role
+        self.dropped = dropped
+        self.admimFailure = adminFailure
+        self.ferpa = ferpa
+        self.emplID = emplID
+        self.canEditEnrollment = canEditEnrollment
+        self.studentAge = studentAge
         
-        
+        self.major = major
+        self.firstName = firstName
+        self.middleName = middleName
+        self.lastName = lastName
+        self.bbID = bbID
+        self.username = username
+        self.cscUsername = cscUsername
+        self.picture = picture
     }
     
 }
