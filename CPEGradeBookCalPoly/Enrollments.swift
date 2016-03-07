@@ -16,7 +16,6 @@ class Enrollments {
     var admimFailure: Int!
     var ferpa: Int!
     var emplID: Int!
-    var canEditEnrollment: Int!
     var studentAge: Int! // age = year
     
     var major: String!
@@ -44,14 +43,13 @@ class Enrollments {
         }
     }
     
-    init(enrollmentID: Int, role: Int, dropped: Int, adminFailure: Int, ferpa: Int, emplID: Int, canEditEnrollment: Int, studentAge: Int, major: String, firstName: String, middleName: String, lastName: String, bbID: String, username: String, cscUsername: String, picture: Picture) {
+    init(enrollmentID: Int, role: Int, dropped: Int, adminFailure: Int, ferpa: Int, emplID: Int,  studentAge: Int, major: String, firstName: String, middleName: String, lastName: String, bbID: String, username: String, cscUsername: String, picture: Picture) {
         self.enrollmentID = enrollmentID
         self.role = role
         self.dropped = dropped
         self.admimFailure = adminFailure
         self.ferpa = ferpa
         self.emplID = emplID
-        self.canEditEnrollment = canEditEnrollment
         self.studentAge = studentAge
         
         self.major = major

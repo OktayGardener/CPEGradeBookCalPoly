@@ -14,8 +14,8 @@ class SettingsController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        settingItems[0] = [1: "logout", 2: "bye felicia"]
-        settingItems[1] = [1: "about", 2: "wat is dis"]
+        settingItems[0] = [1: "about", 2: "wat is dis"]
+        settingItems[1] = [1: "logout", 2: "bye felicia"]
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -83,8 +83,8 @@ class SettingsController: UITableViewController {
         print(indexPath.row)
         
         switch indexPath.row {
-            case 0: self.handleLogOut()
-            case 1: self.presentAboutView()
+            case 0: self.presentAboutView()
+            case 1: self.handleLogOut()
             default: break
         }
     }

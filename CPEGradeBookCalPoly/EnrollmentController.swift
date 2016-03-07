@@ -20,12 +20,14 @@ class EnrollmentController: UITableViewController, UINavigationBarDelegate {
     
     var enrollments: [Enrollments] = [Enrollments]()
     
+    @IBOutlet weak var headerView: EnrollmentHeaderView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         requestEnrollmentJSON()
         parseEnrollmentJSON(self.fetchedUserInformationJSONData)
+        setupHeaderView()
     }
     
     // MARK: JSON
@@ -41,7 +43,6 @@ class EnrollmentController: UITableViewController, UINavigationBarDelegate {
                     adminFailure: enrollment["admin_failure"].int!,
                     ferpa: enrollment["ferpa"].int!,
                     emplID: enrollment["emplid"].int!,
-                    canEditEnrollment: enrollment["can_edit_enrollment"].int!,
                     studentAge: enrollment["age"].int!,
                     major: enrollment["major"].string!,
                     firstName: enrollment["first_name"].string!,
@@ -56,8 +57,10 @@ class EnrollmentController: UITableViewController, UINavigationBarDelegate {
                             fileExtension: enrollment["picture"]["file_extension"].string!,
                             URL: enrollment["picture"]["url"].string!
                     ))
+                self.enrollments.append(enrollment)
             }
         }
+        self.tableView.reloadData()
     }
     
         func requestEnrollmentJSON() {
@@ -79,6 +82,14 @@ class EnrollmentController: UITableViewController, UINavigationBarDelegate {
             }
             return nil
         }
+    
+    // MARK: - Header view
+    func setupHeaderView() {
+        let current = self.enrollments[0]
+        self.headerView.userName.text = current.username
+        self.headerView.major.text = current.major
+        self.headerView.firstMiddleLastName.text = current.firstName + " " + current.middleName + " " + current.lastName
+    }
         
         // MARK: - Table view data source
         
@@ -94,7 +105,7 @@ class EnrollmentController: UITableViewController, UINavigationBarDelegate {
         // TODO: Look up how to make an expandable cell.
         
         override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCellWithIdentifier("GradeCell", forIndexPath: indexPath) as! GradeCell
+            let cell = tableView.dequeueReusableCellWithIdentifier("EnrollmentCell", forIndexPath: indexPath) as! EnrollmentCell
             let current = self.enrollments[indexPath.row]
             
             return cell
