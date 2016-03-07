@@ -23,7 +23,6 @@ class Section {
     var lastDay: NSDate!
     
     
-    
     init(id: Int, polynum: Int, term: Int, termName: String, dept: String, courseNumber: String, courseTitle: String, firstDay: NSDate, lastDay: NSDate) {
         self.id = id
         self.polynum = polynum

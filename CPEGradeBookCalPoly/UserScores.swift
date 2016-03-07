@@ -21,7 +21,12 @@ class UserScores {
     var computeFunc: Int!
     var displayType: Int!
     
-    var dueDate: UInt32!
+    var dueDate: NSDate!
+    
+    var permissions = [Permissions]()
+    var assignmentScores = [AssignmentScores]()
+    var submittedWork = [SubmittedWork]()
+    var feedback = [Feedback]()
     
     class Permissions {
         var id: Int!
@@ -54,5 +59,20 @@ class UserScores {
         var URL: NSURL!
     }
     
+    init(id: Int, maxPoints: Int, abbreviatedName: String, extraCreditAllowed: Int, emailNotification: Int, sortOrder: Int, computeFunc: Int, displayType: Int, dueDate: NSDate, permissions: [Permissions], assignmentScores: [AssignmentScores], submittedWork: [SubmittedWork], feedback: [Feedback]) {
+        self.id = id
+        self.maxPoints = maxPoints
+        self.abbreviatedName = abbreviatedName
+        self.extraCreditAllowed = extraCreditAllowed
+        self.emailNotification = emailNotification
+        self.sortOrder = sortOrder
+        self.computeFunc = computeFunc
+        self.displayType = displayType
+        self.dueDate = dueDate
+        self.permissions = permissions
+        self.assignmentScores = assignmentScores
+        self.submittedWork = submittedWork
+        self.feedback = feedback
+    }
     
 }
