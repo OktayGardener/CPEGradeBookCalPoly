@@ -34,9 +34,9 @@ class Enrollments {
         var id: Int!
         var type: String!
         var fileExtension: String!
-        var URL: NSURL!
+        var URL: String!
         
-        init(id: Int, type: String, fileExtension: String, URL: NSURL) {
+        init(id: Int, type: String, fileExtension: String, URL: String!) {
             self.id = id
             self.type = type
             self.fileExtension = fileExtension

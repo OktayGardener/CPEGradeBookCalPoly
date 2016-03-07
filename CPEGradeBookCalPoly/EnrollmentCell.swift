@@ -14,11 +14,9 @@ class EnrollmentCell: UITableViewCell {
     @IBOutlet var age: UILabel! = UILabel()
     @IBOutlet var major: UILabel! = UILabel()
     @IBOutlet var emplID: UILabel! = UILabel()
-    @IBOutlet var firstName: UILabel! = UILabel()
-    @IBOutlet var middleName: UILabel! = UILabel()
-    @IBOutlet var lastName: UILabel! = UILabel()
+    @IBOutlet var firstMiddleLastName: UILabel! = UILabel()
     @IBOutlet var userName: UILabel! = UILabel()
-    @IBOutlet var picture: UIImage! = UIImage()
+    @IBOutlet var picture: UIImageView! = UIImageView()
     
     override func awakeFromNib() {
         super.awakeFromNib()

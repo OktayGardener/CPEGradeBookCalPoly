@@ -34,7 +34,28 @@ class EnrollmentController: UITableViewController, UINavigationBarDelegate {
         if let enrollments = jsonData["enrollments"].array {
             print(enrollments.count)
             for enrollment in enrollments {
-                print(enrollment)
+                var enrollment =
+                Enrollments(enrollmentID: enrollment["id"].int!,
+                    role: enrollment["role"].int!,
+                    dropped: enrollment["dropped"].int!,
+                    adminFailure: enrollment["admin_failure"].int!,
+                    ferpa: enrollment["ferpa"].int!,
+                    emplID: enrollment["emplid"].int!,
+                    canEditEnrollment: enrollment["can_edit_enrollment"].int!,
+                    studentAge: enrollment["age"].int!,
+                    major: enrollment["major"].string!,
+                    firstName: enrollment["first_name"].string!,
+                    middleName: enrollment["middle_name"].string!,
+                    lastName: enrollment["last_name"].string!,
+                    bbID: enrollment["bb_id"].string!,
+                    username: enrollment["username"].string!,
+                    cscUsername: enrollment["csc_username"].string!,
+                    picture:
+                        Enrollments.Picture(id: enrollment["picture"]["id"].int!,
+                            type: enrollment["picture"]["mimetype"].string!,
+                            fileExtension: enrollment["picture"]["file_extension"].string!,
+                            URL: enrollment["picture"]["url"].string!
+                    ))
             }
         }
     }

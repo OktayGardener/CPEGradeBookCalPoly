@@ -139,13 +139,13 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hLj-Zv-crn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="EnrollmentController" title="Enrollments" id="hr2-3h-S68" customClass="EnrollmentController" customModule="CPEGradeBookCalPoly" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Uot-A7-K7T">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="121" sectionHeaderHeight="28" sectionFooterHeight="28" id="Uot-A7-K7T">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.35475744450000002" green="0.63303285259999997" blue="0.5599315533" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.3989009094" green="0.72384049770000003" blue="0.64599520590000004" alpha="1" colorSpace="calibratedRGB"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" id="TS9-VQ-sYx">
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="TS9-VQ-sYx" customClass="EnrollmentCell" customModule="CPEGradeBookCalPoly" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="94" width="600" height="140"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -219,13 +219,19 @@
                                     <exclude reference="lfD-ek-aiy"/>
                                 </mask>
                             </variation>
+                            <connections>
+                                <outlet property="firstMiddleLastName" destination="VjS-kr-aPF" id="zmk-ew-RMC"/>
+                                <outlet property="major" destination="Qch-yS-YF6" id="vbn-LG-S7R"/>
+                                <outlet property="picture" destination="dSm-Fp-7bN" id="KLE-sV-PSK"/>
+                                <outlet property="userName" destination="Euv-K7-fIH" id="qda-bo-a6x"/>
+                            </connections>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="K54-wI-rq6">
-                                <rect key="frame" x="0.0" y="262" width="600" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="121" id="K54-wI-rq6">
+                                <rect key="frame" x="0.0" y="262" width="600" height="121"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K54-wI-rq6" id="tVD-oF-CqE">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="120.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.35475744450000002" green="0.63303285259999997" blue="0.5599315533" alpha="1" colorSpace="calibratedRGB"/>
