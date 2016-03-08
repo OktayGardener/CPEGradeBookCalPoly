@@ -18,6 +18,8 @@ class EnrollmentCell: UITableViewCell {
     @IBOutlet var userName: UILabel! = UILabel()
     @IBOutlet var picture: UIImageView! = UIImageView()
     
+    @IBOutlet var assignmentTitle: UILabel! = UILabel()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

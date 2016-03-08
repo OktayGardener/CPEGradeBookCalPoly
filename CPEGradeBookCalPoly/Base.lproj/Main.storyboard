@@ -168,7 +168,6 @@
         <!--Enrollments-->
         <scene sceneID="ZQM-8n-HSK">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hLj-Zv-crn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="EnrollmentController" title="Enrollments" id="hr2-3h-S68" customClass="EnrollmentController" customModule="CPEGradeBookCalPoly" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" id="Uot-A7-K7T">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
@@ -262,25 +261,22 @@
                                 <rect key="frame" x="0.0" y="262" width="600" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K54-wI-rq6" id="tVD-oF-CqE">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="59.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="assignmentName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nci-eb-BUb">
-                                            <rect key="frame" x="8" y="18" width="187" height="24"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="187" id="gLD-5v-5Mx"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="of6-Mv-iIf">
+                                            <rect key="frame" x="18" y="19" width="390" height="21"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Nci-eb-BUb" firstAttribute="leading" secondItem="tVD-oF-CqE" secondAttribute="leadingMargin" id="F81-KT-dhg"/>
-                                        <constraint firstItem="Nci-eb-BUb" firstAttribute="centerY" secondItem="tVD-oF-CqE" secondAttribute="centerY" id="H5B-xT-YcJ"/>
-                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.35475744450000002" green="0.63303285259999997" blue="0.5599315533" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="assignmentTitle" destination="of6-Mv-iIf" id="tcR-kV-XVf"/>
+                                    <segue destination="BYX-mv-dGx" kind="show" identifier="AssignmentInformation" id="Hro-NR-brP"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -292,38 +288,16 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="headerView" destination="TS9-VQ-sYx" id="6MI-xd-Bci"/>
-                        <segue destination="Cl1-Rz-c9g" kind="show" identifier="ShowAssignmentDetails" id="KTs-EG-MSq"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hLj-Zv-crn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2898" y="-65"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="sL7-1O-PdV">
-            <objects>
-                <navigationController modalPresentationStyle="currentContext" id="Cl1-Rz-c9g" sceneMemberID="viewController">
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wIM-JH-t4t">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="bRN-xt-Ldp">
-                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </toolbar>
-                    <connections>
-                        <segue destination="BYX-mv-dGx" kind="relationship" relationship="rootViewController" id="T0i-ua-2Wd"/>
-                        <segue destination="hr2-3h-S68" kind="show" identifier="ShowEnrollments" id="JqU-tx-jU7"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WVa-Bo-Q1F" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3857" y="-65"/>
-        </scene>
-        <!--Assignment Information-->
+        <!--AssignmentInformation-->
         <scene sceneID="383-zU-dL7">
             <objects>
-                <viewController storyboardIdentifier="AssignmentDetail" modalPresentationStyle="currentContext" id="BYX-mv-dGx" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AssignmentInformation" title="AssignmentInformation" modalPresentationStyle="currentContext" id="BYX-mv-dGx" customClass="AssignmentInformationController" customModule="CPEGradeBookCalPoly" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nSc-sL-HBG"/>
                         <viewControllerLayoutGuide type="bottom" id="4WO-WG-6Vl"/>
@@ -331,14 +305,44 @@
                     <view key="view" contentMode="scaleToFill" id="Umq-sF-7No">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stats" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VwP-cJ-3ax">
+                                <rect key="frame" x="64" y="84" width="464" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="4hW-OP-MgN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="Mdk-mt-qoL">
+                                <rect key="frame" x="64" y="113" width="464" height="380"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" red="0.3989009094" green="0.72384049770000003" blue="0.64599520590000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Mdk-mt-qoL" firstAttribute="top" secondItem="VwP-cJ-3ax" secondAttribute="bottom" constant="8" symbolic="YES" id="CBf-Pf-I5Q"/>
+                            <constraint firstItem="4WO-WG-6Vl" firstAttribute="top" secondItem="Mdk-mt-qoL" secondAttribute="bottom" constant="107" id="JJg-br-XFm"/>
+                            <constraint firstItem="VwP-cJ-3ax" firstAttribute="trailing" secondItem="Mdk-mt-qoL" secondAttribute="trailing" id="Mag-FR-Jed"/>
+                            <constraint firstItem="Mdk-mt-qoL" firstAttribute="leading" secondItem="Umq-sF-7No" secondAttribute="leadingMargin" constant="44" id="apT-Kc-Ry5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Mdk-mt-qoL" secondAttribute="trailing" constant="52" id="cKu-kw-9t3"/>
+                            <constraint firstItem="VwP-cJ-3ax" firstAttribute="leading" secondItem="Mdk-mt-qoL" secondAttribute="leading" id="lWX-PR-7ae"/>
+                            <constraint firstItem="VwP-cJ-3ax" firstAttribute="top" secondItem="nSc-sL-HBG" secondAttribute="bottom" constant="20" id="y5N-uG-QOu"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Assignment Information" id="ijw-1E-iGT"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="assignmentInfoTextField" destination="Mdk-mt-qoL" id="Acb-PP-dqc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="irG-AM-JYt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4689" y="-65"/>
+            <point key="canvasLocation" x="3969" y="-167"/>
         </scene>
         <!--Grades-->
         <scene sceneID="3K5-Aj-GZA">
@@ -682,7 +686,4 @@
         <image name="Settings" width="25" height="25"/>
         <image name="Twitter" width="72" height="72"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="JqU-tx-jU7"/>
-    </inferredMetricsTieBreakers>
 </document>

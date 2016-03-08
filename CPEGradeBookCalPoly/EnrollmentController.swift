@@ -57,49 +57,59 @@ class EnrollmentController: UITableViewController, UINavigationBarDelegate {
     
     func parseUserScoreJSON(jsonData: JSON) {
         if let userScores = jsonData["userscores"].array {
-            print(userScores.count)
+            print(userScores)
+        
             for userScore in userScores {
-                let currentAssignmentScore = UserScores.AssignmentScores(
-                    counts: userScore["scores"]["counts"].int!,
-                    id: userScore["scores"]["id"].int!,
-                    assignmentScore: userScore["scores"]["score"].int!,
-                    assignmentPostDate: NSDate(timeIntervalSince1970:
-                        NSTimeInterval(userScore["scores"]["post_date"].int!)))
+                var assignmentScores: [UserScores.AssignmentScores] = []
+                var currentAssignmentFeedbacks: [UserScores.Feedback] = []
+                var submittedWorks: [UserScores.SubmittedWork] = []
+                if let currentUserScore = userScore.dictionary {
+                
+                    
+                    if let scores = currentUserScore["scores"]!.array {
+                        for score in scores {
+                            let currentAssignmentScore = UserScores.AssignmentScores(
+                                counts: score["counts"].int!,
+                                id: score["id"].int!,
+                                assignmentScore: score["score"].int!,
+                                assignmentPostDate: NSDate(timeIntervalSince1970:NSTimeInterval(score["post_date"].int!)))
+                            assignmentScores.append(currentAssignmentScore)
+                            
+                            let feedback = score["feedback"]
+                            if feedback != nil {
+                            let currentAssignmentFeedback = UserScores.Feedback(
+                                id: feedback["id"].int!,
+                                type: feedback["mimetype"].string!,
+                                fileExtension: feedback["file_extension"].string!,
+                                URL: feedback["url"].string!)
+                            currentAssignmentFeedbacks.append(currentAssignmentFeedback)
 
+                            }
+                            
+                            let submittedWork = score["submitted_work"]
+                            if submittedWork != nil {
+                            let currentAssignmentSubmittedWork = UserScores.SubmittedWork(
+                                    id: submittedWork["id"].int!,
+                                    type: submittedWork["mimetype"].string!,
+                                    fileExtension: submittedWork["file_extension"].string!,
+                                    URL: submittedWork["url"].string!)
+                                submittedWorks.append(currentAssignmentSubmittedWork)
+                            }
+                        }
+                    }
+                }
                 let currentPermissions = UserScores.Permissions(
                     id: userScore["permissions"]["id"].int!,
                     visible: userScore["permissions"]["visible"].int!,
-                    viewFiles: userScore["permissions"]["view_files"].int!,
+                    viewFiles: userScore["permissions"]["view_stats"].int!, // #care
                     viewStats: userScore["permissions"]["view_stats"].int!,
                     histogram: userScore["permissions"]["view_histogram"].int!,
                     viewProperties: userScore["permissions"]["view_properties"].int!,
-                    computedBy: userScore["permissions"]["computed_by"].int!)
-                
-                var submittedWorks: [UserScores.SubmittedWork] = []
-                
-                for submittedWork in userScore["scores"].array! {
-                    let currentAssignmentSubmittedWork = UserScores.SubmittedWork(
-                        id: userScore["scores"]["id"].int!,
-                        type: userScore["scores"]["type"].string!,
-                        fileExtension: userScore["scores"]["file_extension"].string!,
-                        URL: userScore["scores"]["url"].string!)
-                    submittedWorks.append(currentAssignmentSubmittedWork)
-                }
-                
-                var currentAssignmentFeedbacks: [UserScores.Feedback] = []
-                
-                if userScore["scores"]["feedback"] != nil {
-                    let currentAssignmentFeedback = UserScores.Feedback(
-                        id: userScore["scores"]["feedback"]["id"].int!,
-                        type: userScore["scores"]["feedback"]["type"].int!,
-                        fileExtension: userScore["scores"]["feedback"]["file_extension"].string!,
-                        URL: userScore["scores"]["feedback"]["url"].string!)
-                    currentAssignmentFeedbacks.append(currentAssignmentFeedback)
-                }
-                
+                    computedBy: userScore["permissions"]["view_computed_by"].int!)
                 
                 let currentUserScore = UserScores(
                     id: userScore["id"].int!,
+                    name: userScore["name"].string!,
                     maxPoints: userScore["max_points"].int!,
                     abbreviatedName: userScore["abbreviated_name"].string!,
                     extraCreditAllowed: userScore["extra_credit_allowed"].int!,
@@ -108,16 +118,16 @@ class EnrollmentController: UITableViewController, UINavigationBarDelegate {
                     computeFunc: userScore["compute_func"].int!,
                     displayType: userScore["display_type"].int!,
                     dueDate: NSDate(timeIntervalSince1970:
-                    NSTimeInterval(userScore["due_date"].int!)),
+                        NSTimeInterval(userScore["due_date"].int!)),
                     permissions: currentPermissions,
-                    assignmentScores: currentAssignmentScore,
+                    assignmentScores: assignmentScores,
                     submittedWork: submittedWorks,
                     feedback: currentAssignmentFeedbacks)
                 self.userScores.append(currentUserScore)
             }
+                }
         }
-        
-    }
+    
     
     func parseEnrollmentJSON(jsonData: JSON) {
         if let enrollments = jsonData["enrollments"].array {
@@ -197,17 +207,28 @@ class EnrollmentController: UITableViewController, UINavigationBarDelegate {
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return enrollments.count
+        return self.userScores.count
     }
     
     // TODO: Look up how to make an expandable cell.
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("EnrollmentCell", forIndexPath: indexPath) as! EnrollmentCell
-        let current = self.enrollments[indexPath.row]
+        let current = self.userScores[indexPath.row]
+        cell.assignmentTitle.text = current.abbreviatedName + " - " + current.name
         
         return cell
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let destination = segue.destinationViewController as? AssignmentInformationController {
+            if let cell = sender as? EnrollmentCell, let indexPath = tableView.indexPathForCell(cell) {
+                var current = self.userScores[indexPath.row]
+                destination.currentUserScore = current
+            }
+        }
+    }
+
     
         // TODO:
         // Finish Enrollment

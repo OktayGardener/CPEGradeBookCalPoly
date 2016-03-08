@@ -24,7 +24,7 @@ class UserScores {
     var dueDate: NSDate!
     
     var permissions: Permissions!
-    var assignmentScores = AssignmentScores!
+    var assignmentScores = [AssignmentScores]()
     var submittedWork = [SubmittedWork]()
     var feedback = [Feedback]()
     
@@ -82,10 +82,10 @@ class UserScores {
     
     class Feedback {
         var id: Int!
-        var type: Int!
+        var type: String!
         var fileExtension: String!
         var URL: String!
-        init(id: Int, type: Int, fileExtension: String, URL: String) {
+        init(id: Int, type: String, fileExtension: String, URL: String) {
             self.id = id
             self.type = type
             self.fileExtension = fileExtension
@@ -93,8 +93,9 @@ class UserScores {
         }
     }
     
-    init(id: Int, maxPoints: Int, abbreviatedName: String, extraCreditAllowed: Int, emailNotification: Int, sortOrder: Int, computeFunc: Int, displayType: Int, dueDate: NSDate, permissions: Permissions, assignmentScores: AssignmentScores, submittedWork: [SubmittedWork], feedback: [Feedback]) {
+    init(id: Int, name: String, maxPoints: Int, abbreviatedName: String, extraCreditAllowed: Int, emailNotification: Int, sortOrder: Int, computeFunc: Int, displayType: Int, dueDate: NSDate, permissions: Permissions, assignmentScores: [AssignmentScores], submittedWork: [SubmittedWork], feedback: [Feedback]) {
         self.id = id
+        self.name = name
         self.maxPoints = maxPoints
         self.abbreviatedName = abbreviatedName
         self.extraCreditAllowed = extraCreditAllowed
