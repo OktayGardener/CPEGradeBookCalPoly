@@ -170,7 +170,7 @@
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hLj-Zv-crn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="EnrollmentController" title="Enrollments" id="hr2-3h-S68" customClass="EnrollmentController" customModule="CPEGradeBookCalPoly" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="121" sectionHeaderHeight="28" sectionFooterHeight="28" id="Uot-A7-K7T">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="77" sectionHeaderHeight="28" sectionFooterHeight="28" id="Uot-A7-K7T">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.35475744450000002" green="0.63303285259999997" blue="0.5599315533" alpha="1" colorSpace="calibratedRGB"/>
@@ -180,10 +180,10 @@
                             <rect key="frame" x="0.0" y="94" width="600" height="140"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select an enrollment " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgm-EW-9Tk">
-                                    <rect key="frame" x="214" y="9" width="172" height="21"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your enrollment data" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hgm-EW-9Tk">
+                                    <rect key="frame" x="217" y="9" width="169" height="21"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="172" id="hap-a9-LQB"/>
+                                        <constraint firstAttribute="width" constant="169" id="hap-a9-LQB"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -231,14 +231,14 @@
                                 <constraint firstAttribute="bottom" secondItem="Qch-yS-YF6" secondAttribute="bottom" constant="8" id="K8h-bv-E8r"/>
                                 <constraint firstItem="Qch-yS-YF6" firstAttribute="top" secondItem="Euv-K7-fIH" secondAttribute="bottom" constant="8" symbolic="YES" id="LUU-zg-vwM"/>
                                 <constraint firstItem="Euv-K7-fIH" firstAttribute="top" secondItem="dSm-Fp-7bN" secondAttribute="top" constant="42" id="Lbs-ig-725"/>
-                                <constraint firstItem="dSm-Fp-7bN" firstAttribute="centerX" secondItem="hgm-EW-9Tk" secondAttribute="centerX" id="NHY-Cq-iRP"/>
+                                <constraint firstItem="dSm-Fp-7bN" firstAttribute="centerX" secondItem="hgm-EW-9Tk" secondAttribute="centerX" constant="-1.5" id="NHY-Cq-iRP"/>
                                 <constraint firstItem="dSm-Fp-7bN" firstAttribute="centerY" secondItem="TS9-VQ-sYx" secondAttribute="centerY" id="R2s-k5-yBe"/>
                                 <constraint firstItem="VjS-kr-aPF" firstAttribute="bottom" secondItem="TS9-VQ-sYx" secondAttribute="bottomMargin" id="ZbX-5Q-rwq"/>
                                 <constraint firstAttribute="bottom" secondItem="dSm-Fp-7bN" secondAttribute="bottom" constant="40" id="am7-vW-cxK"/>
                                 <constraint firstItem="dSm-Fp-7bN" firstAttribute="top" secondItem="hgm-EW-9Tk" secondAttribute="bottom" constant="10" id="dz8-lo-RJE"/>
                                 <constraint firstItem="dSm-Fp-7bN" firstAttribute="top" secondItem="hgm-EW-9Tk" secondAttribute="bottom" constant="10" id="lfD-ek-aiy"/>
                                 <constraint firstItem="VjS-kr-aPF" firstAttribute="centerX" secondItem="dSm-Fp-7bN" secondAttribute="centerX" constant="77" id="maI-vq-qBM"/>
-                                <constraint firstItem="hgm-EW-9Tk" firstAttribute="centerX" secondItem="TS9-VQ-sYx" secondAttribute="centerX" id="rFS-e2-Oma"/>
+                                <constraint firstItem="hgm-EW-9Tk" firstAttribute="centerX" secondItem="TS9-VQ-sYx" secondAttribute="centerX" constant="1.5" id="rFS-e2-Oma"/>
                                 <constraint firstItem="Qch-yS-YF6" firstAttribute="trailing" secondItem="Euv-K7-fIH" secondAttribute="trailing" id="tAd-wM-dFU"/>
                                 <constraint firstItem="dSm-Fp-7bN" firstAttribute="centerY" secondItem="TS9-VQ-sYx" secondAttribute="centerY" id="we6-7A-vGc"/>
                             </constraints>
@@ -258,12 +258,27 @@
                             </connections>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EnrollmentCell" rowHeight="121" id="K54-wI-rq6" customClass="EnrollmentCell" customModule="CPEGradeBookCalPoly" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="262" width="600" height="121"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EnrollmentCell" rowHeight="60" id="K54-wI-rq6" customClass="EnrollmentCell" customModule="CPEGradeBookCalPoly" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="262" width="600" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K54-wI-rq6" id="tVD-oF-CqE">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="120.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="assignmentName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nci-eb-BUb">
+                                            <rect key="frame" x="8" y="18" width="187" height="24"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="187" id="gLD-5v-5Mx"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Nci-eb-BUb" firstAttribute="leading" secondItem="tVD-oF-CqE" secondAttribute="leadingMargin" id="F81-KT-dhg"/>
+                                        <constraint firstItem="Nci-eb-BUb" firstAttribute="centerY" secondItem="tVD-oF-CqE" secondAttribute="centerY" id="H5B-xT-YcJ"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.35475744450000002" green="0.63303285259999997" blue="0.5599315533" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
@@ -277,10 +292,53 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="headerView" destination="TS9-VQ-sYx" id="6MI-xd-Bci"/>
+                        <segue destination="Cl1-Rz-c9g" kind="show" identifier="ShowAssignmentDetails" id="KTs-EG-MSq"/>
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="3150" y="-65"/>
+            <point key="canvasLocation" x="2898" y="-65"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sL7-1O-PdV">
+            <objects>
+                <navigationController modalPresentationStyle="currentContext" id="Cl1-Rz-c9g" sceneMemberID="viewController">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wIM-JH-t4t">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="bRN-xt-Ldp">
+                        <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="BYX-mv-dGx" kind="relationship" relationship="rootViewController" id="T0i-ua-2Wd"/>
+                        <segue destination="hr2-3h-S68" kind="show" identifier="ShowEnrollments" id="JqU-tx-jU7"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WVa-Bo-Q1F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3857" y="-65"/>
+        </scene>
+        <!--Assignment Information-->
+        <scene sceneID="383-zU-dL7">
+            <objects>
+                <viewController storyboardIdentifier="AssignmentDetail" modalPresentationStyle="currentContext" id="BYX-mv-dGx" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nSc-sL-HBG"/>
+                        <viewControllerLayoutGuide type="bottom" id="4WO-WG-6Vl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Umq-sF-7No">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.3989009094" green="0.72384049770000003" blue="0.64599520590000004" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Assignment Information" id="ijw-1E-iGT"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="irG-AM-JYt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4689" y="-65"/>
         </scene>
         <!--Grades-->
         <scene sceneID="3K5-Aj-GZA">
@@ -624,4 +682,7 @@
         <image name="Settings" width="25" height="25"/>
         <image name="Twitter" width="72" height="72"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="JqU-tx-jU7"/>
+    </inferredMetricsTieBreakers>
 </document>

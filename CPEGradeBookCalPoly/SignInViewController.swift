@@ -108,7 +108,14 @@ class SignInViewController: UIViewController {
 
     
     func saveCurrentUser(username: String, password: String) {
-        try! Locksmith.saveData([username:password], forUserAccount: "currentUser")
+        do {
+            try Locksmith.saveData([username:password], forUserAccount: "currentUser")
+        } catch _ {
+            try! Locksmith.deleteDataForUserAccount("currentUser")
+            try! Locksmith.saveData([username:password], forUserAccount: "currentUser")
+        }
+        
+        
     }
 
     @IBAction func continueAsPreviousUser(sender:AnyObject) {

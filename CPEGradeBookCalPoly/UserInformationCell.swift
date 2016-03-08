@@ -1,5 +1,5 @@
 //
-//  UserScoreCell.swift
+//  UserInformationCell.swift
 //  CPEGradeBookCalPoly
 //
 //  Created by Oktay Gardener on 06/03/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserScoreCell: UITableViewCell {
+class UserInformationCell: UITableViewCell {
     
     @IBOutlet var id: UILabel! = UILabel()
     @IBOutlet var age: UILabel! = UILabel()

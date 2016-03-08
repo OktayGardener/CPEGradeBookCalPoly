@@ -16,8 +16,10 @@
 		A22D10FE1C8A919A009A0B87 /* NSString+Base64Encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = A22D10FC1C8A919A009A0B87 /* NSString+Base64Encoding.m */; };
 		A26AFF8E1C8D07F0003AE995 /* EnrollmentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26AFF8D1C8D07F0003AE995 /* EnrollmentController.swift */; };
 		A26AFF901C8D3A71003AE995 /* EnrollmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26AFF8F1C8D3A71003AE995 /* EnrollmentCell.swift */; };
-		A26AFF921C8D404A003AE995 /* UserScoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26AFF911C8D404A003AE995 /* UserScoreCell.swift */; };
+		A26AFF921C8D404A003AE995 /* UserInformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26AFF911C8D404A003AE995 /* UserInformationCell.swift */; };
 		A26AFF941C8D49A0003AE995 /* EnrollmentHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26AFF931C8D49A0003AE995 /* EnrollmentHeaderView.swift */; };
+		A26AFF961C8E3A14003AE995 /* UserScoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26AFF951C8E3A14003AE995 /* UserScoreController.swift */; };
+		A26AFF981C8E5D3D003AE995 /* AssignmentInformationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A26AFF971C8E5D3D003AE995 /* AssignmentInformationController.swift */; };
 		A285D5281C84127C00D1E9E2 /* GradeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A285D5271C84127C00D1E9E2 /* GradeController.swift */; };
 		A285D52A1C8412F400D1E9E2 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A285D5291C8412F400D1E9E2 /* SettingsController.swift */; };
 		A285D52E1C842E4200D1E9E2 /* GradeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A285D52D1C842E4200D1E9E2 /* GradeCell.swift */; };
@@ -46,8 +48,10 @@
 		A22D10FC1C8A919A009A0B87 /* NSString+Base64Encoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Base64Encoding.m"; sourceTree = "<group>"; };
 		A26AFF8D1C8D07F0003AE995 /* EnrollmentController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnrollmentController.swift; sourceTree = "<group>"; };
 		A26AFF8F1C8D3A71003AE995 /* EnrollmentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnrollmentCell.swift; sourceTree = "<group>"; };
-		A26AFF911C8D404A003AE995 /* UserScoreCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserScoreCell.swift; sourceTree = "<group>"; };
+		A26AFF911C8D404A003AE995 /* UserInformationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserInformationCell.swift; sourceTree = "<group>"; };
 		A26AFF931C8D49A0003AE995 /* EnrollmentHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnrollmentHeaderView.swift; sourceTree = "<group>"; };
+		A26AFF951C8E3A14003AE995 /* UserScoreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserScoreController.swift; sourceTree = "<group>"; };
+		A26AFF971C8E5D3D003AE995 /* AssignmentInformationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssignmentInformationController.swift; sourceTree = "<group>"; };
 		A285D5271C84127C00D1E9E2 /* GradeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeController.swift; sourceTree = "<group>"; };
 		A285D5291C8412F400D1E9E2 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		A285D52D1C842E4200D1E9E2 /* GradeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradeCell.swift; sourceTree = "<group>"; };
@@ -147,6 +151,8 @@
 				A285D53C1C84F17700D1E9E2 /* SignInViewController.swift */,
 				A2C61AFF1C88075100612D54 /* AboutViewController.swift */,
 				A26AFF8D1C8D07F0003AE995 /* EnrollmentController.swift */,
+				A26AFF951C8E3A14003AE995 /* UserScoreController.swift */,
+				A26AFF971C8E5D3D003AE995 /* AssignmentInformationController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -170,7 +176,7 @@
 				A285D52D1C842E4200D1E9E2 /* GradeCell.swift */,
 				A285D52F1C842E8400D1E9E2 /* SettingsCell.swift */,
 				A26AFF8F1C8D3A71003AE995 /* EnrollmentCell.swift */,
-				A26AFF911C8D404A003AE995 /* UserScoreCell.swift */,
+				A26AFF911C8D404A003AE995 /* UserInformationCell.swift */,
 				A26AFF931C8D49A0003AE995 /* EnrollmentHeaderView.swift */,
 			);
 			name = Views;
@@ -299,7 +305,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A26AFF921C8D404A003AE995 /* UserScoreCell.swift in Sources */,
+				A26AFF961C8E3A14003AE995 /* UserScoreController.swift in Sources */,
+				A26AFF921C8D404A003AE995 /* UserInformationCell.swift in Sources */,
 				A26AFF8E1C8D07F0003AE995 /* EnrollmentController.swift in Sources */,
 				A2BBE22B1C7D587600463F2C /* CPEGradeBookCalPoly.xcdatamodeld in Sources */,
 				A22D10FE1C8A919A009A0B87 /* NSString+Base64Encoding.m in Sources */,
@@ -309,6 +316,7 @@
 				A21FA3B91C862A46008BF83F /* Section.swift in Sources */,
 				A22D10FD1C8A919A009A0B87 /* GradebookURLLoader.m in Sources */,
 				A26AFF941C8D49A0003AE995 /* EnrollmentHeaderView.swift in Sources */,
+				A26AFF981C8E5D3D003AE995 /* AssignmentInformationController.swift in Sources */,
 				A21FA3BB1C862A54008BF83F /* Enrollments.swift in Sources */,
 				A2C61B001C88075100612D54 /* AboutViewController.swift in Sources */,
 				A285D5301C842E8400D1E9E2 /* SettingsCell.swift in Sources */,
