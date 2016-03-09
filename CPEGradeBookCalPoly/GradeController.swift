@@ -13,6 +13,8 @@ class GradeController: UITableViewController, UINavigationBarDelegate {
     
     @IBOutlet var welcomeLabel: UILabel! = UILabel()
     @IBOutlet var userAvatar: UIImageView! = UIImageView()
+    static let sharedInstance = GradeController()
+    
     
     var fetchedSectionJSONData: JSON!
     
@@ -24,12 +26,18 @@ class GradeController: UITableViewController, UINavigationBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.sections.removeAll()
+        self.tableView.reloadData()
+        
         if let data = try? self.loader.loadDataFromPath("?record=sections") {
             self.fetchedSectionJSONData = JSON(nsdataToJSON(data)!)
         }
         
         parseSectionJSON(fetchedSectionJSONData)
         
+        dispatch_async(dispatch_get_main_queue(),{
+            self.tableView.reloadData()
+        });
         
         self.userAvatar.layer.cornerRadius = self.userAvatar.frame.width / 2
         
@@ -38,7 +46,8 @@ class GradeController: UITableViewController, UINavigationBarDelegate {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        self.tableView.reloadData()
+        self.refreshControl?.addTarget(self, action: "handleRefresh:", forControlEvents: UIControlEvents.ValueChanged)
+
     }
     
     // MARK: JSON
@@ -62,6 +71,28 @@ class GradeController: UITableViewController, UINavigationBarDelegate {
         }
         self.tableView.reloadData()
     }
+    
+    
+    @IBAction func handleRefresh(sender: AnyObject) {
+        self.sections.removeAll()
+        self.tableView.reloadData()
+        
+        if let data = try? self.loader.loadDataFromPath("?record=sections") {
+            self.fetchedSectionJSONData = JSON(nsdataToJSON(data)!)
+        } else {
+            print("could not load data from path")
+        }
+    
+        parseSectionJSON(fetchedSectionJSONData)
+        
+        dispatch_async(dispatch_get_main_queue(),{
+            self.tableView.reloadData()
+        });
+        
+        
+        refreshControl!.endRefreshing()
+    }
+    
     
     func nsdataToJSON(data: NSData) -> AnyObject? {
         do {

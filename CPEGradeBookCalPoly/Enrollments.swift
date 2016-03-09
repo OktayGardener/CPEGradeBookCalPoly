@@ -43,7 +43,7 @@ class Enrollments {
         }
     }
     
-    init(enrollmentID: Int, role: Int, dropped: Int, adminFailure: Int, ferpa: Int, emplID: Int,  studentAge: Int, major: String, firstName: String, middleName: String, lastName: String, bbID: String, username: String, cscUsername: String, picture: Picture) {
+    init(enrollmentID: Int, role: Int, dropped: Int, adminFailure: Int, ferpa: Int, emplID: Int,  studentAge: Int, major: String, firstName: String, middleName: String, lastName: String, bbID: String, username: String, cscUsername: String) {
         self.enrollmentID = enrollmentID
         self.role = role
         self.dropped = dropped
@@ -59,7 +59,6 @@ class Enrollments {
         self.bbID = bbID
         self.username = username
         self.cscUsername = cscUsername
-        self.picture = picture
     }
     
 }

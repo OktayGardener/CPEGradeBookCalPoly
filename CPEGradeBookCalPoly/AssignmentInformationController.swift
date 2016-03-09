@@ -22,23 +22,17 @@ class AssignmentInformationController: UIViewController {
         
         
         // Assignment main info
-        var allText: String =
-        "ID: \(self.currentUserScore.id) \n Max Points: \(self.currentUserScore.maxPoints) \n Assignment Name: \(self.currentUserScore.name) \n Assignment Abbreviated Name: \(self.currentUserScore.abbreviatedName as String) \n Due Date: \(self.currentUserScore.dueDate) \n\n"
+        var allText: String = ""
         
-            for (key, val) in self.currentUserScore.submittedWork.enumerate() {
-                print(key, val)
-            }
+        if self.currentUserScore.dueDate.isEqualToDate(NSDate(timeIntervalSince1970: 0)) {
+           allText += "ID: \(self.currentUserScore.id) \n Max Points: \(self.currentUserScore.maxPoints) \n Assignment Name: \(self.currentUserScore.name) \n Assignment Abbreviated Name: \(self.currentUserScore.abbreviatedName as String) \n Due Date: No due date set8 \n\n"
+        } else {
+            allText += "ID: \(self.currentUserScore.id) \n Max Points: \(self.currentUserScore.maxPoints) \n Assignment Name: \(self.currentUserScore.name) \n Assignment Abbreviated Name: \(self.currentUserScore.abbreviatedName as String) \n Due Date: \(self.currentUserScore.dueDate) \n\n"
+        }
         
-            for val in self.currentUserScore.feedback.enumerate() {
-                print(val)
-            }
-        
-            for val in self.currentUserScore.assignmentScores.enumerate() {
-                print(val)
-            }
-        
-        
-        allText += "Submitted Work Data: \n ID: \(self.currentUserScore.submittedWork.first?.id)\n Mimetype: \(self.currentUserScore.submittedWork.first?.type) \n File Extension: \(self.currentUserScore.submittedWork.first?.fileExtension) \n URL: \(self.currentUserScore.submittedWork.first?.URL) \n\n"
+        if self.currentUserScore.submittedWork.first != nil {
+            allText += "Submitted Work Data: \n ID: \((self.currentUserScore.submittedWork.first?.id)! as Int)\n Mimetype: \((self.currentUserScore.submittedWork.first?.type)! as String) \n File Extension: \((self.currentUserScore.submittedWork.first?.fileExtension)! as String) \n URL: \((self.currentUserScore.submittedWork.first?.URL)! as String) \n\n"
+        }
         
         if self.currentUserScore.assignmentScores.first != nil {
             if self.currentUserScore.assignmentScores.count > 1 {

@@ -37,11 +37,9 @@ class UserScores {
         var viewProperties: Int!
         var computedBy: Int!
         
-        init(id: Int, visible: Int, viewFiles: Int, viewStats: Int, histogram: Int, viewProperties: Int, computedBy: Int) {
+        init(id: Int, visible: Int, histogram: Int, viewProperties: Int, computedBy: Int) {
             self.id = id
             self.visible = visible
-            self.viewFiles = viewFiles
-            self.viewStats = viewStats
             self.histogram = histogram
             self.viewProperties = viewProperties
             self.computedBy = computedBy
@@ -93,18 +91,17 @@ class UserScores {
         }
     }
     
-    init(id: Int, name: String, maxPoints: Int, abbreviatedName: String, extraCreditAllowed: Int, emailNotification: Int, sortOrder: Int, computeFunc: Int, displayType: Int, dueDate: NSDate, permissions: Permissions, assignmentScores: [AssignmentScores], submittedWork: [SubmittedWork], feedback: [Feedback]) {
+    init(id: Int, name: String, maxPoints: Int, abbreviatedName: String, dueDate: NSDate,  assignmentScores: [AssignmentScores], submittedWork: [SubmittedWork], feedback: [Feedback]) {
         self.id = id
         self.name = name
         self.maxPoints = maxPoints
         self.abbreviatedName = abbreviatedName
-        self.extraCreditAllowed = extraCreditAllowed
-        self.emailNotification = emailNotification
-        self.sortOrder = sortOrder
-        self.computeFunc = computeFunc
-        self.displayType = displayType
+//        self.extraCreditAllowed = extraCreditAllowed
+//        self.emailNotification = emailNotification
+//        self.sortOrder = sortOrder
+//        self.computeFunc = computeFunc
+//        self.displayType = displayType
         self.dueDate = dueDate
-        self.permissions = permissions
         self.assignmentScores = assignmentScores
         self.submittedWork = submittedWork
         self.feedback = feedback

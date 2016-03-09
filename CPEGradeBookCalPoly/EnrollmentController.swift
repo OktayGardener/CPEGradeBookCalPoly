@@ -20,6 +20,7 @@ class EnrollmentController: UITableViewController, UINavigationBarDelegate {
     let enrollmentSuffix: String = "?record=enrollments&term=<TERM>&course=<COURSE>"
     let userScoreSuffix: String = "?record=userscores&term=<TERM>&course=<COURSE>&user=<USER>"
     
+    static let sharedInstance = EnrollmentController()
     
     var enrollments: [Enrollments] = [Enrollments]()
     var userScores: [UserScores] = [UserScores]()
@@ -37,8 +38,9 @@ class EnrollmentController: UITableViewController, UINavigationBarDelegate {
         requestUserScoreJSON()
         parseUserScoreJSON(self.fetchedUserScoreJSONData)
         
-        setupUserImageDataFromJSON()
+        //setupUserImageDataFromJSON()
         setupHeaderView()
+        self.tableView.reloadData()
     }
     
     // MARK: JSON
@@ -98,28 +100,32 @@ class EnrollmentController: UITableViewController, UINavigationBarDelegate {
                         }
                     }
                 }
-                let currentPermissions = UserScores.Permissions(
-                    id: userScore["permissions"]["id"].int!,
-                    visible: userScore["permissions"]["visible"].int!,
-                    viewFiles: userScore["permissions"]["view_stats"].int!, // #care
-                    viewStats: userScore["permissions"]["view_stats"].int!,
-                    histogram: userScore["permissions"]["view_histogram"].int!,
-                    viewProperties: userScore["permissions"]["view_properties"].int!,
-                    computedBy: userScore["permissions"]["view_computed_by"].int!)
-                
+//                let currentPermissions = UserScores.Permissions(
+//                    id: userScore["permissions"]["id"].int!,
+//                    visible: userScore["permissions"]["visible"].int!,
+//                   // viewFiles: userScore["permissions"]["view_stats"].int!, // #care
+//                  //  viewStats: userScore["permissions"]["view_stats"].int!,
+//                    histogram: userScore["permissions"]["view_histogram"].int!,
+//                    viewProperties: userScore["permissions"]["view_properties"].int!,
+//                    computedBy: userScore["permissions"]["view_computed_by"].int!)
+//
+                var dueDate = 0
+                if userScore["due_date"] != nil {
+                    dueDate = userScore["due_date"].int!
+                }
                 let currentUserScore = UserScores(
                     id: userScore["id"].int!,
                     name: userScore["name"].string!,
                     maxPoints: userScore["max_points"].int!,
                     abbreviatedName: userScore["abbreviated_name"].string!,
-                    extraCreditAllowed: userScore["extra_credit_allowed"].int!,
-                    emailNotification: userScore["email_notification"].int!,
-                    sortOrder: userScore["sort_order"].int!,
-                    computeFunc: userScore["compute_func"].int!,
-                    displayType: userScore["display_type"].int!,
+//                    extraCreditAllowed: userScore["extra_credit_allowed"].int!,
+//                    emailNotification: userScore["email_notification"].int!,
+//                    sortOrder: userScore["sort_order"].int!,
+//                    computeFunc: userScore["compute_func"].int!,
+//                    displayType: userScore["display_type"].int!,
                     dueDate: NSDate(timeIntervalSince1970:
-                        NSTimeInterval(userScore["due_date"].int!)),
-                    permissions: currentPermissions,
+                        NSTimeInterval(dueDate)),
+                //    permissions: currentPermissions,
                     assignmentScores: assignmentScores,
                     submittedWork: submittedWorks,
                     feedback: currentAssignmentFeedbacks)
@@ -147,13 +153,7 @@ class EnrollmentController: UITableViewController, UINavigationBarDelegate {
                     lastName: enrollment["last_name"].string!,
                     bbID: enrollment["bb_id"].string!,
                     username: enrollment["username"].string!,
-                    cscUsername: enrollment["csc_username"].string!,
-                    picture:
-                        Enrollments.Picture(id: enrollment["picture"]["id"].int!,
-                            type: enrollment["picture"]["mimetype"].string!,
-                            fileExtension: enrollment["picture"]["file_extension"].string!,
-                            URL: enrollment["picture"]["url"].string!
-                    ))
+                    cscUsername: enrollment["csc_username"].string!)
                 self.enrollments.append(enrollment)
                 print(enrollment)
             }

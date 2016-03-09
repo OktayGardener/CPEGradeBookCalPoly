@@ -24,7 +24,7 @@ class SignInViewController: UIViewController {
     
     let jsonEndpoint: String = "https://users.csc.calpoly.edu/~bellardo/cgi-bin/grades.json"
     
-    let loader = GradebookURLLoader()
+    var loader = GradebookURLLoader()
     
     var fetchedJSONData: JSON!
     
@@ -52,10 +52,10 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.loader.baseURL = NSURL(string: self.jsonEndpoint)!
-        
         urlField.text = self.jsonEndpoint
-        
+
+        self.loader.baseURL = NSURL(string: urlField.text!)!
+
         self.loginContainer.layer.cornerRadius = self.loginContainer.frame.size.width / 16
         
         let originalFrame: CGRect = self.loginContainer.frame
@@ -95,6 +95,7 @@ class SignInViewController: UIViewController {
         }
         
         for (key, value) in credentials! {
+            self.loader.baseURL = NSURL(string: self.urlField.text!)!
             if self.loader.loginWithUsername((key), andPassword: value as! String) {
                 return true
             } else {
@@ -114,8 +115,6 @@ class SignInViewController: UIViewController {
             try! Locksmith.deleteDataForUserAccount("currentUser")
             try! Locksmith.saveData([username:password], forUserAccount: "currentUser")
         }
-        
-        
     }
 
     @IBAction func continueAsPreviousUser(sender:AnyObject) {
@@ -131,6 +130,9 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func login(sender: AnyObject) {
+        self.loader = GradebookURLLoader()
+        loader.baseURL = NSURL(string: urlField.text!)!
+        
         if self.loader.loginWithUsername(usernameField.text!, andPassword: passwordField.text!) {
             print("Auth worked!")
             saveCurrentUser(usernameField.text!, password: passwordField.text!)

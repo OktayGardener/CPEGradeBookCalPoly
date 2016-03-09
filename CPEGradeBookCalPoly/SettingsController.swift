@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Locksmith
 
 class SettingsController: UITableViewController {
 
@@ -45,10 +46,19 @@ class SettingsController: UITableViewController {
     
     func logOut() {
         print("logout called")
+        try! Locksmith.deleteDataForUserAccount("currentUser")
+       
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("currentUser")
+        NSUserDefaults.standardUserDefaults().synchronize()
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let signInViewController: UIViewController! = storyboard.instantiateViewControllerWithIdentifier("SignInViewController")
-        presentViewController(signInViewController, animated: true, completion: nil)
+        
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        appDelegate.window!.rootViewController = signInViewController
+        appDelegate.window!.makeKeyAndVisible()
     }
     
     // MARK: - Table view data source
