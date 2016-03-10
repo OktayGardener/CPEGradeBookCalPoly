@@ -4,7 +4,6 @@
  use_frameworks!
 
 target 'CPEGradeBookCalPoly' do
-    pod 'Alamofire'
     pod 'Locksmith'
     pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 end
